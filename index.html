@@ -360,7 +360,259 @@ if(h>=3)return ["SEDANG","load-mid"];
 return ["LONGGAR","load-low"];
 }
 
+const rotation = {
+"Briefing":[
+"cek format station",
+"buat daftar skill",
+"cek alat & komunikasi",
+"simulasi alur station"
+],
+
+"OSCE":[
+"anamnesis & komunikasi",
+"pemeriksaan fisik",
+"prosedur & safety",
+"verbal rehearsal",
+"mini mock OSCE"
+],
+
+"Praktikum":[
+"alat & preparat",
+"prinsip pemeriksaan",
+"interpretasi hasil",
+"kesalahan umum",
+"rapid recall"
+],
+
+"Ujian Blok":[
+"anatomi & fisiologi dasar",
+"axis hormon",
+"feedback mechanism",
+"patofisiologi",
+"latihan soal",
+"error log"
+],
+
+"UAS":[
+"review kuliah",
+"active recall",
+"latihan soal",
+"weak-topic repair",
+"rapid review"
+]
+};
+
+function daysToExam(exam,date){
+const a=new Date(date+"T00:00:00+07:00");
+const b=examDate(exam);
+return Math.ceil((b-a)/86400000);
+}
+
+function studyPhase(exam,date){
+
+const d=daysToExam(exam,date);
+
+if(d<=1) return "H-1";
+if(d<=3) return "H-3";
+if(d<=7) return "H-7";
+
+return "BUILD";
+
+}
+
+function phaseTask(exam,date,index){
+
+const phase=studyPhase(exam,date);
+
+const list=
+rotation[exam.type] ||
+rotation["UAS"];
+
+const dateNum=
+new Date(date+"T00:00:00+07:00")
+.getDate();
+
+const pick=
+list[(dateNum+index)%list.length];
+
+if(phase==="H-1")
+return "Rapid recall + checklist akhir";
+
+if(phase==="H-3")
+return pick+" + latihan soal";
+
+if(phase==="H-7")
+return pick+" + active recall";
+
+return pick;
+
+}
+
+function latestEnd(date){
+
+const events=[
+...campusFor(date).map(x=>x[2]),
+...busyFor(date).map(x=>x.end||x.time)
+];
+
+if(!events.length)
+return null;
+
+return events.sort().slice(-1)[0];
+
+}
+
+function addMinutes(time,mins){
+
+let [h,m]=time.split(":").map(Number);
+
+let total=h*60+m+mins;
+
+let hh=Math.floor(total/60)%24;
+
+let mm=total%60;
+
+return String(hh).padStart(2,"0")
++":"+
+String(mm).padStart(2,"0");
+
+}
+
 function studySlots(date){
+
+const future=
+exams
+.filter(
+e =>
+examDate(e)>
+new Date(date+"T23:59:00+07:00")
+)
+.sort(
+(a,b)=>examDate(a)-examDate(b)
+);
+
+if(!future.length)
+return [];
+
+const load=dayLoad(date);
+
+const todayExam=
+examFor(date).length>0;
+
+const end=
+latestEnd(date);
+
+let startEvening="19:30";
+
+if(end){
+
+const hour=
+Number(end.split(":")[0]);
+
+if(hour>=18)
+startEvening=
+addMinutes(end,90);
+
+else if(hour>=15)
+startEvening=
+addMinutes(end,120);
+
+else if(hour>=12)
+startEvening=
+addMinutes(end,150);
+
+}
+
+const first=future[0];
+
+const second=
+future[1] || first;
+
+if(todayExam){
+
+return [
+[
+startEvening,
+"15–20 menit",
+"Light recall • "+
+first.title
+]
+];
+
+}
+
+if(load>=7){
+
+return [
+[
+startEvening,
+"20 menit",
+first.title+
+" • "+
+phaseTask(first,date,0)
+]
+];
+
+}
+
+if(load>=4){
+
+const secondTime=
+addMinutes(
+startEvening,
+50
+);
+
+return [
+
+[
+startEvening,
+"30 menit",
+first.title+
+" • "+
+phaseTask(first,date,0)
+],
+
+[
+secondTime,
+"20 menit",
+second.title+
+" • "+
+phaseTask(second,date,1)
+]
+
+];
+
+}
+
+return [
+
+[
+"09:00",
+"45 menit",
+first.title+
+" • "+
+phaseTask(first,date,0)
+],
+
+[
+"14:00",
+"45 menit",
+second.title+
+" • "+
+phaseTask(second,date,1)
+],
+
+[
+"20:00",
+"25 menit",
+first.title+
+" • spaced repetition"
+]
+
+];
+
+}{
 const future=exams.filter(e=>examDate(e)>new Date(date+"T23:59:00+07:00")).sort((a,b)=>examDate(a)-examDate(b));
 if(!future.length)return[];
 
