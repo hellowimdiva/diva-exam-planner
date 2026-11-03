@@ -2,776 +2,549 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#252722">
-
-<title>Diva Exam Planner V4</title>
+<title>Diva Exam Planner V5</title>
 
 <style>
-
 :root{
-  --bg:#f5f1eb;
-  --card:#fffdfa;
-  --ink:#252722;
-  --muted:#746f68;
-  --line:#e5ddd2;
-
-  --green:#69785e;
-  --green-soft:#e5eddc;
-
-  --red:#b85e58;
-  --red-soft:#f2d9d7;
-
-  --yellow:#d2a551;
-  --yellow-soft:#f3e6bd;
-
-  --blue:#718aa7;
-  --blue-soft:#dfe9f2;
-
-  --purple:#8e79a5;
-  --purple-soft:#e8def0;
-
-  --shadow:0 13px 34px rgba(58,46,37,.08);
+--bg:#f5f1eb;
+--card:#fffdfa;
+--ink:#252722;
+--muted:#746f68;
+--line:#e5ddd2;
+--green:#69785e;
+--greenSoft:#e5eddc;
+--red:#b85e58;
+--redSoft:#f2d9d7;
+--yellow:#d2a551;
+--yellowSoft:#f3e6bd;
+--blueSoft:#dfe9f2;
+--purpleSoft:#e8def0;
+--shadow:0 13px 34px rgba(58,46,37,.08)
 }
 
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 body{
-  margin:0;
-  font-family:
-  -apple-system,
-  BlinkMacSystemFont,
-  "Segoe UI",
-  sans-serif;
-
-  background:var(--bg);
-  color:var(--ink);
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+background:var(--bg);
+color:var(--ink)
 }
 
-button,
-input,
-select,
-textarea{
-  font:inherit;
-}
-
-button{
-  cursor:pointer;
-}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
 
 .app{
-  max-width:1200px;
-  margin:auto;
-  padding:16px 16px 40px;
+max-width:1200px;
+margin:auto;
+padding:16px 16px 40px
 }
 
-/* ================= HERO ================= */
-
 .hero{
-  padding:24px;
-
-  border:
-  1px solid var(--line);
-
-  border-radius:28px;
-
-  background:
-  linear-gradient(
-  135deg,
-  #fffdf9,
-  #ede7dd
-  );
-
-  box-shadow:
-  var(--shadow);
+padding:24px;
+border:1px solid var(--line);
+border-radius:28px;
+background:linear-gradient(135deg,#fffdf9,#ede7dd);
+box-shadow:var(--shadow)
 }
 
 .kicker{
-  font-size:11px;
-  font-weight:800;
-
-  letter-spacing:.15em;
-
-  color:var(--green);
+font-size:11px;
+font-weight:800;
+letter-spacing:.15em;
+color:var(--green)
 }
 
 h1{
-  font-size:
-  clamp(
-  32px,
-  7vw,
-  56px
-  );
-
-  line-height:1;
-
-  margin:
-  7px 0 10px;
+font-size:clamp(32px,7vw,56px);
+line-height:1;
+margin:7px 0 10px
 }
 
-h2,
-h3{
-  margin-top:0;
-}
-
-.hero p{
-  margin:0;
-
-  max-width:800px;
-
-  color:
-  var(--muted);
-}
-
-/* ================= STATS ================= */
+h2,h3{margin-top:0}
+.muted{color:var(--muted)}
+.small{font-size:12px}
 
 .stats{
-  display:grid;
-
-  grid-template-columns:
-  repeat(4,1fr);
-
-  gap:9px;
-
-  margin-top:18px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:9px;
+margin-top:18px
 }
 
 .stat{
-  background:#fff;
-
-  border:
-  1px solid var(--line);
-
-  border-radius:18px;
-
-  padding:13px;
+background:#fff;
+border:1px solid var(--line);
+border-radius:18px;
+padding:13px
 }
 
 .stat b{
-  display:block;
-
-  font-size:22px;
+display:block;
+font-size:22px
 }
 
 .stat span{
-  font-size:11px;
-
-  color:
-  var(--muted);
+font-size:11px;
+color:var(--muted)
 }
 
-/* ================= NAV ================= */
-
 .nav{
-  display:flex;
-
-  gap:8px;
-
-  overflow:auto;
-
-  position:sticky;
-
-  top:0;
-
-  z-index:20;
-
-  padding:
-  12px 0;
-
-  background:
-  rgba(
-  245,
-  241,
-  235,
-  .93
-  );
-
-  backdrop-filter:
-  blur(12px);
+display:flex;
+gap:8px;
+overflow:auto;
+position:sticky;
+top:0;
+z-index:20;
+background:rgba(245,241,235,.94);
+backdrop-filter:blur(12px);
+padding:12px 0
 }
 
 .nav button{
-  white-space:
-  nowrap;
-
-  border:
-  1px solid var(--line);
-
-  background:#fff;
-
-  padding:
-  9px 13px;
-
-  border-radius:
-  999px;
+white-space:nowrap;
+border:1px solid var(--line);
+background:#fff;
+padding:9px 13px;
+border-radius:999px
 }
 
 .nav button.active{
-  background:
-  var(--ink);
-
-  color:#fff;
+background:var(--ink);
+color:#fff
 }
 
-/* ================= GENERAL ================= */
-
 .grid{
-  display:grid;
-
-  grid-template-columns:
-  1.3fr .7fr;
-
-  gap:15px;
+display:grid;
+grid-template-columns:1.3fr .7fr;
+gap:15px
 }
 
 .card{
-  background:
-  var(--card);
-
-  border:
-  1px solid var(--line);
-
-  border-radius:22px;
-
-  padding:18px;
-
-  box-shadow:
-  var(--shadow);
+background:var(--card);
+border:1px solid var(--line);
+border-radius:22px;
+padding:18px;
+box-shadow:var(--shadow)
 }
 
-.hidden{
-  display:none;
-}
-
-.section{
-  margin-top:15px;
-}
-
-.muted{
-  color:
-  var(--muted);
-}
-
-.small{
-  font-size:12px;
-}
-
-/* ================= PROGRESS ================= */
+.hidden{display:none}
+.section{margin-top:15px}
 
 .progress{
-  height:9px;
-
-  background:
-  #ebe6df;
-
-  border-radius:
-  999px;
-
-  overflow:hidden;
+height:9px;
+background:#ebe6df;
+border-radius:999px;
+overflow:hidden
 }
 
 .progress i{
-  display:block;
-
-  height:100%;
-
-  width:0;
-
-  background:
-  var(--green);
-
-  transition:
-  width .3s;
+display:block;
+height:100%;
+background:var(--green);
+width:0;
+transition:width .3s
 }
-
-/* ================= TASK ================= */
 
 .task{
-  display:flex;
-
-  gap:10px;
-
-  align-items:
-  flex-start;
-
-  padding:
-  12px 0;
-
-  border-bottom:
-  1px solid var(--line);
+display:flex;
+gap:10px;
+align-items:flex-start;
+padding:12px 0;
+border-bottom:1px solid var(--line)
 }
 
-.task:last-child{
-  border-bottom:0;
-}
+.task:last-child{border-bottom:0}
 
 .task input[type=checkbox]{
-  transform:
-  scale(1.3);
-
-  margin-top:4px;
+transform:scale(1.3);
+margin-top:4px
 }
 
 .task.done .tasktext{
-  text-decoration:
-  line-through;
-
-  color:#999;
+text-decoration:line-through;
+color:#999
 }
 
-.task button{
-  margin-left:auto;
-}
-
-/* ================= BUTTON ================= */
+.task button{margin-left:auto}
 
 .btn{
-  border:0;
-
-  background:
-  var(--ink);
-
-  color:#fff;
-
-  border-radius:
-  12px;
-
-  padding:
-  10px 13px;
+border:0;
+background:var(--ink);
+color:#fff;
+border-radius:12px;
+padding:10px 13px
 }
 
 .soft{
-  border:
-  1px solid var(--line);
-
-  background:#fff;
-
-  border-radius:
-  11px;
-
-  padding:
-  8px 11px;
+border:1px solid var(--line);
+background:#fff;
+border-radius:11px;
+padding:8px 11px
 }
 
 .danger{
-  border:0;
-
-  background:
-  #f2dddd;
-
-  color:
-  #94443f;
-
-  border-radius:
-  11px;
-
-  padding:
-  9px 12px;
+border:0;
+background:#f2dddd;
+color:#94443f;
+border-radius:11px;
+padding:9px 12px
 }
 
-/* ================= TIMER ================= */
-
 .focus{
-  background:
-  #282924;
-
-  color:white;
-
-  border-radius:
-  22px;
-
-  padding:20px;
-
-  text-align:center;
+background:#282924;
+color:#fff;
+border-radius:22px;
+padding:20px;
+text-align:center
 }
 
 .timer{
-  font-size:48px;
-
-  font-weight:800;
-
-  margin:
-  10px 0;
+font-size:48px;
+font-weight:800;
+margin:10px 0
 }
-
-/* ================= NOTE ================= */
 
 .note{
-  padding:
-  12px 13px;
-
-  background:
-  #f0eae3;
-
-  border-radius:
-  13px;
-
-  font-size:12px;
+padding:12px 13px;
+background:#f0eae3;
+border-radius:13px;
+font-size:12px
 }
-
-/* ================= BADGES ================= */
 
 .badge{
-  display:inline-block;
-
-  font-size:10px;
-
-  font-weight:800;
-
-  padding:
-  5px 8px;
-
-  border-radius:
-  999px;
+display:inline-block;
+font-size:10px;
+font-weight:800;
+padding:5px 8px;
+border-radius:999px
 }
 
-.green{
-  background:
-  var(--green-soft);
-}
-
-.yellow{
-  background:
-  var(--yellow-soft);
-}
-
-.red{
-  background:
-  var(--red-soft);
-}
-
-.blue{
-  background:
-  var(--blue-soft);
-}
-
-.purple{
-  background:
-  var(--purple-soft);
-}
+.green{background:var(--greenSoft)}
+.yellow{background:var(--yellowSoft)}
+.red{background:var(--redSoft)}
+.blue{background:var(--blueSoft)}
+.purple{background:var(--purpleSoft)}
 
 .count{
-  font-weight:800;
-
-  color:
-  var(--red);
+font-weight:800;
+color:var(--red)
 }
 
-/* ================= TIMELINE ================= */
-
 .timeline{
-  display:grid;
-
-  gap:8px;
+display:grid;
+gap:8px
 }
 
 .event{
-  display:grid;
-
-  grid-template-columns:
-  90px 1fr;
-
-  gap:10px;
-
-  border:
-  1px solid var(--line);
-
-  background:#fff;
-
-  border-radius:14px;
-
-  padding:10px;
+display:grid;
+grid-template-columns:90px 1fr;
+gap:10px;
+border:1px solid var(--line);
+background:#fff;
+border-radius:14px;
+padding:10px
 }
 
 .event .time{
-  font-weight:800;
-
-  color:
-  var(--green);
+font-weight:800;
+color:var(--green)
 }
 
-.event.study{
-  background:
-  #eef2eb;
-}
+.event.study{background:#eef2eb}
+.event.busy{background:#ebe2f1}
+.event.exam{background:#f4dfdc}
 
-.event.campus{
-  background:#fff;
-}
-
-.event.exam{
-  background:
-  #f4dfdc;
-}
-
-.event.busy{
-  background:
-  #ebe2f1;
-}
-
-/* ================= DAY CARD ================= */
-
-.daycard{
-  border:
-  1px solid var(--line);
-
-  background:#fff;
-
-  border-radius:
-  18px;
-
-  padding:14px;
-
-  margin:
-  9px 0;
+.daycard,.examcard{
+border:1px solid var(--line);
+background:#fff;
+border-radius:18px;
+padding:14px;
+margin:9px 0
 }
 
 .daytop{
-  display:flex;
-
-  align-items:center;
-
-  justify-content:
-  space-between;
-
-  gap:10px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px
 }
 
 .load{
-  font-size:10px;
-
-  font-weight:800;
-
-  border-radius:
-  999px;
-
-  padding:
-  5px 8px;
+font-size:10px;
+font-weight:800;
+border-radius:999px;
+padding:5px 8px
 }
 
-.load-low{
-  background:
-  var(--green-soft);
-}
-
-.load-mid{
-  background:
-  var(--yellow-soft);
-}
-
-.load-high{
-  background:
-  var(--red-soft);
-}
-
-/* ================= EXAM PROGRESS ================= */
-
-.examcard{
-  background:#fff;
-
-  border:
-  1px solid var(--line);
-
-  border-radius:
-  18px;
-
-  padding:14px;
-
-  margin:
-  9px 0;
-}
+.load-low{background:var(--greenSoft)}
+.load-mid{background:var(--yellowSoft)}
+.load-high{background:var(--redSoft)}
 
 .examrow{
-  display:grid;
-
-  grid-template-columns:
-  1fr auto;
-
-  gap:12px;
-
-  align-items:center;
+display:grid;
+grid-template-columns:1fr auto;
+gap:12px;
+align-items:center
 }
 
 .ring{
-  position:relative;
-
-  width:72px;
-
-  height:72px;
-
-  border-radius:50%;
-
-  display:grid;
-
-  place-items:center;
-
-  background:
-  conic-gradient(
-  var(--green)
-  var(--p),
-  #ece8e2 0
-  );
+position:relative;
+width:72px;
+height:72px;
+border-radius:50%;
+display:grid;
+place-items:center;
+background:conic-gradient(var(--green) var(--p),#ece8e2 0)
 }
 
 .ring:after{
-  content:"";
-
-  position:absolute;
-
-  width:54px;
-
-  height:54px;
-
-  background:white;
-
-  border-radius:50%;
+content:"";
+position:absolute;
+width:54px;
+height:54px;
+background:#fff;
+border-radius:50%
 }
 
 .ring span{
-  position:relative;
-
-  z-index:2;
-
-  font-size:12px;
-
-  font-weight:800;
+position:relative;
+z-index:2;
+font-size:12px;
+font-weight:800
 }
-
-/* ================= FORMS ================= */
 
 .select,
 .form input,
 .form select,
 .form textarea{
-
-  width:100%;
-
-  border:
-  1px solid var(--line);
-
-  background:white;
-
-  border-radius:
-  12px;
-
-  padding:9px;
+width:100%;
+border:1px solid var(--line);
+background:#fff;
+border-radius:12px;
+padding:9px
 }
 
 .form{
-  display:grid;
-
-  gap:9px;
+display:grid;
+gap:9px
 }
 
 .row{
-  display:grid;
-
-  grid-template-columns:
-  1fr 1fr;
-
-  gap:8px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px
 }
-
-/* ================= SKILLS ================= */
-
-.skill{
-  display:flex;
-
-  gap:10px;
-
-  padding:
-  10px 0;
-
-  border-bottom:
-  1px solid var(--line);
-
-  align-items:center;
-}
-
-.skill input{
-  transform:
-  scale(1.3);
-}
-
-/* ================= WARNING ================= */
 
 .warning{
-  padding:12px;
-
-  background:
-  #fff2d8;
-
-  border:
-  1px solid #ead2a0;
-
-  border-radius:
-  13px;
+padding:12px;
+background:#fff2d8;
+border:1px solid #ead2a0;
+border-radius:13px
 }
-
-/* ================= STUDY PHASE ================= */
 
 .phase{
-  display:inline-block;
-
-  font-size:9px;
-
-  font-weight:800;
-
-  margin-left:5px;
-
-  padding:
-  3px 6px;
-
-  border-radius:
-  999px;
-
-  background:
-  #e6e3dd;
-
-  color:#5d5954;
+display:inline-block;
+font-size:9px;
+font-weight:800;
+margin-left:5px;
+padding:3px 6px;
+border-radius:999px;
+background:#e6e3dd;
+color:#5d5954
 }
 
-/* ================= RESPONSIVE ================= */
+/* ================= OSCE LAB ================= */
+
+.osceHero{
+background:#242621;
+color:#fff;
+border-radius:22px;
+padding:18px
+}
+
+.osceHero .select{margin-top:8px}
+
+.osceTimer{
+font-size:58px;
+font-weight:900;
+letter-spacing:1px
+}
+
+.micStatus{
+padding:9px 11px;
+border-radius:12px;
+background:#f0eae3;
+font-size:12px
+}
+
+.micStatus.live{
+background:#dfead8;
+color:#42513a
+}
+
+.transcript{
+min-height:100px;
+white-space:pre-wrap;
+background:#fff;
+border:1px solid var(--line);
+border-radius:14px;
+padding:12px
+}
+
+.scoreRow{
+display:grid;
+grid-template-columns:1fr 115px;
+gap:10px;
+align-items:start;
+padding:10px 0;
+border-bottom:1px solid var(--line)
+}
+
+.scoreRow:last-child{border-bottom:0}
+
+.scoreSelect{
+width:100%;
+border:1px solid var(--line);
+border-radius:10px;
+background:#fff;
+padding:7px
+}
+
+.osceSection{
+margin-top:14px;
+padding:8px 10px;
+border-radius:10px;
+background:#eee8df;
+font-weight:800
+}
+
+.scoreSummary{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+background:#eef2eb;
+border-radius:14px;
+padding:12px;
+margin-top:12px
+}
+
+.playback{
+width:100%;
+margin-top:10px
+}
+
+.practiceBadge{
+font-size:11px;
+background:#e8def0;
+padding:5px 8px;
+border-radius:999px
+}
+
+.micButtons{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-top:10px
+}
+
+/* ================= BLOCK ================= */
+
+.blockGroup{
+border:1px solid var(--line);
+background:#fff;
+border-radius:18px;
+padding:14px;
+margin:10px 0
+}
+
+.blockTop{
+display:flex;
+justify-content:space-between;
+gap:10px;
+align-items:flex-start
+}
+
+.blockItems{margin-top:10px}
+
+.blockItem{
+display:grid;
+grid-template-columns:1fr 130px;
+gap:10px;
+align-items:center;
+padding:9px 0;
+border-top:1px solid var(--line)
+}
+
+.blockTag{
+font-size:10px;
+background:#ece7df;
+padding:4px 7px;
+border-radius:999px
+}
+
+.blockSummary{
+background:#282924;
+color:#fff;
+border-radius:20px;
+padding:18px
+}
+
+.blockSummary .progress{background:#484944}
+.blockSummary .progress i{background:#b7c5aa}
+
+.search{
+width:100%;
+border:1px solid var(--line);
+border-radius:12px;
+padding:10px;
+background:#fff
+}
+
+.statusPill{
+font-size:10px;
+padding:4px 7px;
+border-radius:999px;
+background:#eee8df
+}
 
 @media(max-width:820px){
 
-  .stats{
-    grid-template-columns:
-    1fr 1fr;
-  }
-
-  .grid{
-    grid-template-columns:
-    1fr;
-  }
-
-  .examrow{
-    grid-template-columns:
-    1fr;
-  }
-
-  .event{
-    grid-template-columns:
-    78px 1fr;
-  }
-
+.stats{
+grid-template-columns:1fr 1fr
 }
 
+.grid{
+grid-template-columns:1fr
+}
+
+.examrow{
+grid-template-columns:1fr
+}
+
+.event{
+grid-template-columns:78px 1fr
+}
+
+.scoreRow{
+grid-template-columns:1fr 95px
+}
+
+.blockItem{
+grid-template-columns:1fr 105px
+}
+
+}
 </style>
 </head>
-
 
 <body>
 
 <div class="app">
-
-<!-- ================= HERO ================= -->
 
 <section class="hero">
 
@@ -784,63 +557,31 @@ Diva Exam Planner
 </h1>
 
 <p>
-Bismillah IPK naik. Planner ini membaca jadwal kampus, ujian,
-organisasi, dan aslab supaya kamu tidak perlu memutuskan semuanya
-sendirian setiap hari.
+Bismillah IPK naik. Sekarang planner juga punya OSCE Lab 7 menit
+dengan mikrofon + rekaman, checklist penilaian 0–2, dan tracker
+seluruh materi Ujian Blok Endokrin & Nutrisi.
 </p>
-
 
 <div class="stats">
 
 <div class="stat">
-
-<b id="nextExam">
-—
-</b>
-
-<span>
-ujian terdekat
-</span>
-
+<b id="nextExam">—</b>
+<span>ujian terdekat</span>
 </div>
 
-
 <div class="stat">
-
-<b id="daysLeft">
-—
-</b>
-
-<span>
-hari lagi
-</span>
-
+<b id="daysLeft">—</b>
+<span>hari lagi</span>
 </div>
 
-
 <div class="stat">
-
-<b id="doneCount">
-0
-</b>
-
-<span>
-task selesai
-</span>
-
+<b id="doneCount">0</b>
+<span>task selesai</span>
 </div>
 
-
 <div class="stat">
-
-<b id="busyCount">
-0
-</b>
-
-<span>
-kesibukan tambahan
-</span>
-
+<b id="busyCount">0</b>
+<span>kesibukan tambahan</span>
 </div>
 
 </div>
@@ -848,12 +589,9 @@ kesibukan tambahan
 </section>
 
 
-<!-- ================= NAV ================= -->
-
 <nav class="nav">
 
-<button class="active"
-data-page="today">
+<button class="active" data-page="today">
 Hari Ini
 </button>
 
@@ -869,8 +607,12 @@ Jadwal Kampus
 Progress Ujian
 </button>
 
-<button data-page="skills">
-OSCE & Praktikum
+<button data-page="oscelab">
+OSCE Lab 7 Menit
+</button>
+
+<button data-page="block">
+Materi Blok Endokrin
 </button>
 
 <button data-page="busy">
@@ -880,72 +622,41 @@ Organisasi / Aslab
 </nav>
 
 
-<!-- ================= TODAY ================= -->
-
-<section id="today"
-class="page">
+<section id="today" class="page">
 
 <div class="grid">
 
-
 <div class="card">
 
-<div class="small"
-id="todayDate">
-</div>
+<div class="small" id="todayDate"></div>
 
 <h2>
 Hari ini kita kerjakan apa?
 </h2>
 
-<p class="muted"
-id="todayLoadText">
-</p>
+<p class="muted" id="todayLoadText"></p>
 
 <div class="progress">
-
-<i id="progressBar">
-</i>
-
+<i id="progressBar"></i>
 </div>
 
-<div id="taskList">
-</div>
+<div id="taskList"></div>
 
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px">
 
-<div style="
-display:flex;
-gap:8px;
-flex-wrap:wrap;
-margin-top:14px
-">
-
-<button
-class="danger"
-onclick="tiredMode()">
-
+<button class="danger" onclick="tiredMode()">
 😵 Aku Capek
-
 </button>
 
-
-<button
-class="soft"
-onclick="resetToday()">
-
+<button class="soft" onclick="resetToday()">
 Reset Target
-
 </button>
 
 </div>
-
 
 <div class="note section">
 
-<b>
-Aturan:
-</b>
-
+<b>Aturan:</b>
 yang tidak selesai hari ini tidak berubah menjadi hukuman besok.
 Planner menghitung ulang dari prioritas terbaru.
 
@@ -958,42 +669,24 @@ Planner menghitung ulang dari prioritas terbaru.
 
 <div class="focus">
 
-<div class="small"
-style="color:#ccc">
-
+<div class="small" style="color:#ccc">
 FOCUS TIMER
-
 </div>
 
-<div class="timer"
-id="timer">
-
+<div class="timer" id="timer">
 25:00
-
 </div>
 
-<button
-class="soft"
-onclick="startTimer()">
-
+<button class="soft" onclick="startTimer()">
 Mulai
-
 </button>
 
-<button
-class="soft"
-onclick="pauseTimer()">
-
+<button class="soft" onclick="pauseTimer()">
 Pause
-
 </button>
 
-<button
-class="soft"
-onclick="resetTimer()">
-
+<button class="soft" onclick="resetTimer()">
 Reset
-
 </button>
 
 </div>
@@ -1005,8 +698,7 @@ Reset
 Ujian terdekat
 </h3>
 
-<div id="priority">
-</div>
+<div id="priority"></div>
 
 </div>
 
@@ -1019,13 +711,11 @@ Sleep target
 
 <div class="row">
 
-<input
-id="sleepTime"
+<input id="sleepTime"
 type="time"
 value="23:30">
 
-<input
-id="wakeTime"
+<input id="wakeTime"
 type="time"
 value="06:30">
 
@@ -1042,7 +732,6 @@ Simpan
 <div
 id="sleepMsg"
 class="small muted">
-
 </div>
 
 </div>
@@ -1061,7 +750,6 @@ Timeline Hari Ini
 <div
 id="todayTimeline"
 class="timeline">
-
 </div>
 
 </div>
@@ -1069,11 +757,7 @@ class="timeline">
 </section>
 
 
-<!-- ================= SMART PLAN ================= -->
-
-<section
-id="smart"
-class="page hidden">
+<section id="smart" class="page hidden">
 
 <div class="card">
 
@@ -1082,23 +766,18 @@ Smart Study Plan · 7 Hari
 </h2>
 
 <p class="muted">
-Planner memperhitungkan jadwal kampus, waktu pulang,
-buffer istirahat, ujian, dan kesibukan tambahan.
+Materi OSCE dan blok sekarang ikut masuk rotasi.
+H-7, H-3, dan H-1 otomatis mengubah jenis latihan.
 </p>
 
-<div id="smartWeek">
-</div>
+<div id="smartWeek"></div>
 
 </div>
 
 </section>
 
 
-<!-- ================= CAMPUS ================= -->
-
-<section
-id="campus"
-class="page hidden">
+<section id="campus" class="page hidden">
 
 <div class="card">
 
@@ -1107,22 +786,17 @@ Jadwal Kampus · Kelas D
 </h2>
 
 <p class="muted">
-Disusun dari mapping jadwal kuliah yang kamu kirim.
+Disusun dari mapping jadwal yang kamu kirim.
 </p>
 
-<div id="campusSchedule">
-</div>
+<div id="campusSchedule"></div>
 
 </div>
 
 </section>
 
 
-<!-- ================= EXAM ================= -->
-
-<section
-id="exams"
-class="page hidden">
+<section id="exams" class="page hidden">
 
 <div class="card">
 
@@ -1132,19 +806,185 @@ Progress Ujian
 
 <div class="warning">
 
-<b>
-Catatan:
-</b>
-
-Jadwal Ujian Praktikum Farmakoterapi kelas D belum aku masukkan
-sebagai tanggal ujian karena dari mapping yang kamu kirim
-aku belum cukup yakin tanggal ujiannya.
+<b>Catatan:</b>
+tanggal Ujian Praktikum Farmakoterapi kelas D belum aku jadikan
+deadline karena dari mapping sebelumnya belum cukup jelas.
 
 </div>
 
 <div
 id="examProgress"
 class="section">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= OSCE LAB ================= -->
+
+<section id="oscelab" class="page hidden">
+
+<div class="grid">
+
+<div>
+
+<div class="osceHero">
+
+<div class="small" style="color:#bbb">
+OSCE LAB · 7 MENIT PER SKILL
+</div>
+
+<h2 style="margin:5px 0 8px">
+Latihan seperti station
+</h2>
+
+<select
+id="osceSkillSelect"
+class="select"
+onchange="changeOsceSkill()">
+</select>
+
+<div
+class="osceTimer"
+id="osceTimer">
+07:00
+</div>
+
+<div>
+
+<span
+class="practiceBadge"
+id="practiceCount">
+
+0 latihan tersimpan
+
+</span>
+
+</div>
+
+<div class="micButtons">
+
+<button
+class="soft"
+onclick="startOscePractice()">
+
+🎙️ Mulai 7 menit + dengarkan
+
+</button>
+
+<button
+class="soft"
+onclick="pauseOsceTimer()">
+
+Pause
+
+</button>
+
+<button
+class="soft"
+onclick="resumeOsceTimer()">
+
+Lanjut
+
+</button>
+
+<button
+class="soft"
+onclick="stopOscePractice(false)">
+
+⏹ Selesai
+
+</button>
+
+<button
+class="soft"
+onclick="resetOsceTimer()">
+
+Reset 7:00
+
+</button>
+
+</div>
+
+</div>
+
+
+<div class="card section">
+
+<h3>
+Suara & transkrip
+</h3>
+
+<div
+id="micStatus"
+class="micStatus">
+
+Mikrofon belum aktif.
+
+</div>
+
+<div
+class="transcript section"
+id="liveTranscript">
+
+Transkrip ucapanmu akan muncul di sini bila browser mendukung
+Speech Recognition.
+
+</div>
+
+<audio
+id="audioPlayback"
+class="playback"
+controls
+hidden>
+</audio>
+
+<div class="small muted section">
+
+Rekaman disimpan sementara di halaman ini untuk playback.
+Setelah refresh, audio rekaman hilang.
+Skor checklist dan jumlah latihan tetap tersimpan.
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2 id="osceChecklistTitle">
+Checklist
+</h2>
+
+<div class="scoreSummary">
+
+<div>
+
+<b id="osceScoreText">
+0%
+</b>
+
+<div class="small muted">
+skor checklist
+</div>
+
+</div>
+
+<div
+class="small"
+id="osceScoreFraction">
+
+0 / 0
+
+</div>
+
+</div>
+
+<div id="osceChecklist"></div>
 
 </div>
 
@@ -1153,36 +993,58 @@ class="section">
 </section>
 
 
-<!-- ================= SKILLS ================= -->
+<!-- ================= BLOCK ================= -->
 
-<section
-id="skills"
-class="page hidden">
+<section id="block" class="page hidden">
 
-<div class="grid">
+<div class="blockSummary">
 
-<div class="card">
+<div class="small" style="color:#ccc">
 
-<h2>
-OSCE Checklist
+UJIAN BLOK ENDOKRIN & NUTRISI · 30 NOV
+
+</div>
+
+<h2 style="margin:5px 0 10px">
+
+Materi Blok Tracker
+
 </h2>
 
-<div id="osceList">
+<div class="progress">
+
+<i id="blockProgressBar"></i>
+
+</div>
+
+<div style="
+display:flex;
+justify-content:space-between;
+margin-top:7px
+">
+
+<span id="blockProgressText">
+0%
+</span>
+
+<span id="blockDoneText">
+0 / 0 topik
+</span>
+
 </div>
 
 </div>
 
 
-<div class="card">
+<div class="card section">
 
-<h2>
-Praktikum Tracker
-</h2>
+<input
+id="blockSearch"
+class="search"
+placeholder="Cari: Cushing, DM, tiroid, obesitas..."
+oninput="renderBlockTopics()">
 
-<div id="prakList">
-</div>
-
-</div>
+<div id="blockTopics"></div>
 
 </div>
 
@@ -1191,12 +1053,9 @@ Praktikum Tracker
 
 <!-- ================= BUSY ================= -->
 
-<section
-id="busy"
-class="page hidden">
+<section id="busy" class="page hidden">
 
 <div class="grid">
-
 
 <div class="card">
 
@@ -1262,9 +1121,7 @@ placeholder="Catatan">
 </textarea>
 
 <button class="btn">
-
 Tambahkan
-
 </button>
 
 </form>
@@ -1278,8 +1135,7 @@ Tambahkan
 Kesibukan tersimpan
 </h2>
 
-<div id="busyList">
-</div>
+<div id="busyList"></div>
 
 </div>
 
@@ -1287,118 +1143,95 @@ Kesibukan tersimpan
 
 </section>
 
-
 </div>
 
 
 <script>
 
-/* ==========================================================
-   JADWAL KAMPUS KELAS D
-========================================================== */
+/* ======================================================
+   JADWAL KAMPUS
+====================================================== */
 
-const campus = [
+const campus=[
 
 ["2026-11-02","08:00","09:40","Sistem Endokrin & Nutrisi 11"],
 ["2026-11-02","09:50","11:30","Sistem Endokrin & Nutrisi 12"],
 ["2026-11-02","14:00","15:40","Sistem Endokrin & Nutrisi 13"],
 
-
 ["2026-11-03","08:00","09:40","Tutorial Skenario 2"],
 ["2026-11-03","09:50","11:30","Biokimia Klinis 12"],
 ["2026-11-03","14:00","15:40","Mikrobiologi 11"],
 
-
 ["2026-11-04","08:00","15:40","Skills Lab 3"],
-
 
 ["2026-11-05","08:00","09:40","Tutorial Skenario 2"],
 ["2026-11-05","09:50","11:30","Farmakoterapi 11"],
 ["2026-11-05","14:00","15:40","Sistem Endokrin & Nutrisi · Pleno 2"],
-
 
 ["2026-11-06","08:00","09:40","Sistem Endokrin & Nutrisi 17"],
 ["2026-11-06","09:50","11:30","Parasitologi 12"],
 ["2026-11-06","14:00","15:40","Sistem Endokrin & Nutrisi 18"],
 ["2026-11-06","16:35","18:15","Sistem Endokrin & Nutrisi 19"],
 
-
 ["2026-11-09","08:00","09:40","Sistem Endokrin & Nutrisi 20"],
 ["2026-11-09","14:00","15:40","Praktikum Farmakoterapi Kelas D"],
-
 
 ["2026-11-10","08:00","09:40","Sistem Endokrin & Nutrisi 21"],
 ["2026-11-10","09:50","11:30","Biokimia Klinis 13"],
 ["2026-11-10","14:00","15:40","Mikrobiologi 12"],
 ["2026-11-10","16:35","18:15","Sistem Endokrin & Nutrisi 22"],
 
-
 ["2026-11-11","08:00","15:40","Briefing OSCE"],
-
 
 ["2026-11-12","09:50","11:30","Community Visit"],
 ["2026-11-12","14:00","15:40","Mikrobiologi 13"],
 
-
 ["2026-11-16","14:00","15:40","Praktikum Farmakoterapi Kelas D"],
-
 
 ["2026-11-17","08:00","09:40","Biokimia Klinis 14"],
 ["2026-11-17","09:50","11:30","Mikrobiologi 14"],
 
-
 ["2026-11-18","08:00","15:40","OSCE"],
 
-
 ["2026-11-19","08:00","15:40","OSCE"],
-
 
 ["2026-11-20","08:00","09:40","Parasitologi 13"],
 ["2026-11-20","09:50","11:30","Farmakoterapi 11"],
 ["2026-11-20","14:00","15:40","Praktikum Parasitologi Kelas D"],
 
-
 ["2026-11-24","08:00","09:40","Biokimia Klinis 15"],
 ["2026-11-24","09:50","11:30","Mikrobiologi 15"],
 ["2026-11-24","14:00","15:40","Farmakoterapi 13"],
 
-
 ["2026-11-25","09:50","11:30","Praktikum Mikrobiologi Kelas D"],
 
-
 ["2026-11-26","09:50","11:30","Praktikum Mikrobiologi Kelas D"],
-
 
 ["2026-11-27","08:00","09:40","Parasitologi 14"],
 ["2026-11-27","09:50","11:30","Farmakoterapi 14"],
 ["2026-11-27","14:00","15:40","Ujian Praktikum Parasitologi Kelas D"],
 
-
 ["2026-11-30","08:00","11:30","Ujian Blok Sistem Endokrin & Nutrisi"],
-
 
 ["2026-12-01","08:00","09:40","Parasitologi 15"],
 ["2026-12-01","14:00","18:15","UAS Mikrobiologi"],
 
-
 ["2026-12-02","09:50","11:30","Ujian Praktikum Biokimia Klinis Kelas D"],
 ["2026-12-02","14:00","18:15","UAS Biokimia Klinis"],
 
-
 ["2026-12-03","09:50","11:30","Ujian Praktikum Mikrobiologi Kelas D"],
 ["2026-12-03","14:00","18:15","UAS Farmakoterapi"],
-
 
 ["2026-12-04","14:00","18:15","UAS Parasitologi"]
 
 ];
 
 
-/* ==========================================================
-   EXAM LIST
-========================================================== */
+/* ======================================================
+   EXAMS
+====================================================== */
 
-const exams = [
+const exams=[
 
 {
 id:"brief",
@@ -1491,178 +1324,696 @@ type:"UAS"
 ];
 
 
-/* ==========================================================
-   ROTASI MATERI
-========================================================== */
+/* ======================================================
+   MATERI BLOK ENDOKRIN
+====================================================== */
 
-const rotation = {
+const blockGroups=[
 
-"Briefing":[
+{
+n:1,
+title:"Introduksi Blok · Malnutrisi Energi Protein",
+cpmk:"CPMK 3",
+items:[
+"Malnutrisi Energi Protein (4A)"
+]
+},
 
+{
+n:2,
+title:"Diabetes Mellitus & Kegawatan Diabetes",
+cpmk:"CPMK 1",
+items:[
+"DM Tipe 2 (4A)",
+"DM tipe lain (3A)",
+"Ketoasidosis diabetikum (3B)",
+"Hiperglikemi-hiperosmolar (3B)",
+"Hipoglikemi ringan (4A)",
+"Hipoglikemi berat (3B)"
+]
+},
+
+{
+n:3,
+title:"Kelainan Pituitari",
+cpmk:"CPMK 1",
+items:[
+"Diabetes insipidus",
+"Adenoma pituitari",
+"Prolaktinoma",
+"Akromegali"
+]
+},
+
+{
+n:4,
+title:"Endokrin Reproduksi",
+cpmk:"CPMK 1",
+items:[
+"PCOS",
+"DM gestasional",
+"Amenore primer dan sekunder"
+]
+},
+
+{
+n:5,
+title:"Defisiensi Vitamin & Mineral",
+cpmk:"CPMK 3",
+items:[
+"Defisiensi vitamin (4A)",
+"Defisiensi mineral (4A)"
+]
+},
+
+{
+n:6,
+title:"Gangguan Kelenjar Tiroid",
+cpmk:"CPMK 2",
+items:[
+"Hipertiroid (3A)",
+"Hipotiroid (2)",
+"Tirotoksikosis (3B)",
+"Nodul tiroid (3A)",
+"Tiroiditis (2)"
+]
+},
+
+{
+n:7,
+title:"Gangguan Kelenjar Paratiroid",
+cpmk:"CPMK 2",
+items:[
+"Hiperparatiroid (1)",
+"Hipoparatiroid (3A)",
+"Adenoma tiroid (2) · sesuai daftar kuliah",
+"Karsinoma tiroid (2) · sesuai daftar kuliah"
+]
+},
+
+{
+n:8,
+title:"Tatalaksana Gizi pada Kesehatan Kerja",
+cpmk:"CPMK 4",
+items:[
+"Tatalaksana gizi pada kesehatan kerja"
+]
+},
+
+{
+n:9,
+title:"Gangguan Kelenjar Adrenal",
+cpmk:"CPMK 2",
+items:[
+"Cushing's syndrome",
+"Cushing's disease (3B)",
+"Krisis adrenal (3B)",
+"Addison's disease (1)"
+]
+},
+
+{
+n:10,
+title:"Gangguan Metabolik",
+cpmk:"CPMK 3",
+items:[
+"Dislipidemia",
+"Sindrom metabolik",
+"Hiperurisemia",
+"Porfiria"
+]
+},
+
+{
+n:11,
+title:"Tatalaksana Nutrisi pada Penyakit Metabolik",
+cpmk:"CPMK 4",
+items:[
+"Nutrisi pada DM tipe 2",
+"Nutrisi pada sindrom metabolik",
+"Nutrisi pada dislipidemia",
+"Nutrisi pada hiperurisemia"
+]
+},
+
+{
+n:12,
+title:"Obesitas",
+cpmk:"CPMK 3",
+items:[
+"Obesitas (4A)"
+]
+},
+
+{
+n:13,
+title:"Tidur, Stres & Sistem Endokrin",
+cpmk:"CPMK 4",
+items:[
+"Interaksi pola tidur, manajemen stres, dan sistem endokrin",
+"Implikasi klinis dan terapeutik"
+]
+},
+
+{
+n:14,
+title:"Exercise & Penyakit Metabolik",
+cpmk:"CPMK 4",
+items:[
+"Exercise pada obesitas",
+"Exercise pada berbagai penyakit metabolik"
+]
+}
+
+];
+
+
+const blockFlat=
+blockGroups.flatMap(
+
+g=>
+
+g.items.map(
+
+item=>({
+
+group:g.n,
+groupTitle:g.title,
+item
+
+})
+
+)
+
+);
+
+
+/* ======================================================
+   OSCE CHECKLISTS
+====================================================== */
+
+const osceSkills=[
+
+{
+id:"thorax",
+title:"Pemeriksaan Foto Thoraks",
+sections:[
+
+[
+"Data umum",
+[
+"Nama",
+"Usia",
+"Jenis kelamin",
+"Tanggal pemeriksaan"
+]
+],
+
+[
+"Data teknis",
+[
+"Marker L/R menunjukkan sisi kiri atau kanan pasien",
+"Kesimetrisan foto: ujung medial clavicula sama jarak dengan garis tengah",
+"Ketepatan faktor ekspos: vertebra thorakal jelas sampai T4–T5, T6 ke bawah samar",
+"Inspirasi penuh: midpoint hemidiafragma kanan di antara ujung anterior costa 5 dan 7",
+"Scapula keluar dan tidak overlap jaringan paru"
+]
+],
+
+[
+"Bagian foto",
+[
+"Tulang (scapula, clavicula, vertebra, costae): nilai deformitas/destruksi",
+"Soft tissue: nilai swelling dan udara",
+"Trakea terlihat dan berada di tengah",
+"ICS kiri/kanan: sejajar, ada penyempitan/pelebaran atau tidak",
+"Jantung: besar/CTR, bentuk, posisi",
+"Aorta: melebar/memanjang/kalsifikasi",
+"Sinus costophrenicus dan cardiophrenicus: tajam/tumpul",
+"Diafragma: bentuk dan letak",
+"Pulmo: radiolusen/radioopak, bandingkan kiri-kanan, batas paru, hilus, corakan bronkovaskular"
+]
+],
+
+[
+"Kesimpulan",
+[
+"Menyimpulkan hasil: normal atau ada kelainan"
+]
+]
+
+]
+},
+
+
+{
+id:"sensitive",
+title:"Anamnesis Kasus Sensitif",
+sections:[
+
+[
+"Keterampilan komunikasi",
+[
+"Membina sambung rasa",
+"Memperlihatkan sikap menerima dan mempersilakan duduk",
+"Menyebut nama pasien pada awal anamnesis",
+"Melakukan cross-check informasi",
+"Menggunakan bahasa verbal/nonverbal yang dipahami",
+"Mengajukan pertanyaan yang tepat",
+"Mencatat/mengutarakan kembali secara sistematis dan benar",
+"Menjadi pendengar yang baik",
+"Penampilan baik, ramah, berwibawa",
+"Menunjukkan empati",
+"Menjelaskan kepentingan penggalian data sensitif",
+"Meyakinkan kerahasiaan data",
+"Memberikan informasi sensitif dengan bahasa yang mudah dipahami"
+]
+],
+
+[
+"Menggali informasi",
+[
+"Identitas: nama dan umur",
+"Identitas: alamat dan pekerjaan",
+"Menanyakan keluhan utama",
+"RPS: kapan mulai",
+"RPS: frekuensi",
+"RPS: sifat",
+"RPS: lama diderita",
+"RPS: letak",
+"RPS: penyebaran",
+"RPS: akibat",
+"RPS: pengobatan",
+"RPD terkait keluhan utama",
+"Riwayat penyakit lain yang pernah diderita",
+"Riwayat penyakit keluarga dan lingkungan",
+"Apakah ada anggota keluarga/tetangga yang sakit serupa",
+"Anamnesis sistem yang berkaitan dengan keluhan utama",
+"Anamnesis sistem lain yang ada"
+]
+]
+
+]
+},
+
+
+{
+id:"extremity",
+title:"Pemeriksaan Foto X-Ray Ekstremitas",
+sections:[
+
+[
+"Data umum",
+[
+"Nama",
+"Usia",
+"Jenis kelamin",
+"Tanggal pemeriksaan"
+]
+],
+
+[
+"Data teknis",
+[
+"Marker L/R sebagai penanda kiri atau kanan",
+"Teknik pengambilan: proyeksi AP/Lat/Oblique, tampak 2 sendi proksimal dan distal, tidak terpotong",
+"Kondisi foto dapat membedakan tulang dan jaringan lunak"
+]
+],
+
+[
+"ABCDS",
+[
+"Alignment: nilai kesegarisan dan deformitas",
+"Bone: kontinuitas/defek korteks dan medula, kalus/soft callus",
+"Cartilage: celah/permukaan sendi, diskontinuitas tulang dan defek",
+"Density: normal, menurun, atau meningkat",
+"Soft tissue: edema, gas radiolusen, kalsifikasi radioopak",
+"Buat kesimpulan berdasarkan ABCDS"
+]
+],
+
+[
+"Penutup",
+[
+"Memberikan informasi hasil pemeriksaan dan follow-up lebih lanjut"
+]
+]
+
+]
+},
+
+
+{
+id:"catheter",
+title:"Pemasangan Kateter",
+sections:[
+
+[
+"Persiapan",
+[
+"Jelaskan cara, tujuan, kemungkinan efek, dan minta persetujuan pasien",
+"Siapkan kateter ukuran sesuai, urine bag, spuit 5/10 cc, aquadest/NaCl 0,9%, doek steril, sarung tangan steril, pinset, jelly anestetik, povidone iodine",
+"Minta pasien berbaring",
+"Pemeriksa berdiri di sebelah kiri pasien laki-laki (kecuali kidal)",
+"Cuci tangan dan pakai sarung tangan steril secara aseptik",
+"Tes balon kateter dengan aquabidest 1–2 ml lalu keluarkan kembali"
+]
+],
+
+[
+"Teknik",
+[
+"Desinfeksi muara uretra eksterna sampai perineum lalu batasi dengan doek steril",
+"Buat lubricant 2 cc lidocaine + 8 cc jelly; masukkan perlahan ke uretra, tunggu 3–5 menit",
+"Masukkan kateter menggunakan pinset secara perlahan",
+"Jika ada tahanan bulbomembranosa, minta pasien relaks/menelan atau tarik penis ke atas agar sfingter eksternal relaks",
+"Dorong kateter hingga percabangan kateter menyentuh meatus uretra eksterna",
+"Jika urin keluar: tampung, ukur, nilai volume dan warna/kejernihan",
+"Kembangkan balon 5–10 ml aquades steril, pasang urine bag, tarik kateter sampai tertahan balon",
+"Jika urin tidak keluar: uji dengan NaCl 0,9% 10 cc lalu aspirasi; bila gagal hentikan kateterisasi",
+"Bersihkan kembali area genitalia dan buka doek steril",
+"Tutup daerah antara ujung penis dan kateter dengan kasa",
+"Fiksasi kateter dengan plester di inguinal/perut bawah suprapubik"
+]
+],
+
+[
+"Penutup",
+[
+"Beritahu pemasangan selesai dan jelaskan follow-up",
+"Tulis laporan pemasangan di rekam medis termasuk volume aquades untuk balon"
+]
+]
+
+]
+},
+
+
+{
+id:"breast",
+title:"Breast Examination",
+sections:[
+
+[
+"Persiapan",
+[
+"Jelaskan cara dan tujuan pemeriksaan dengan benar/jelas/lengkap",
+"Beritahu kemungkinan rasa sakit atau tidak nyaman",
+"Minta pasien membuka pakaian bagian atas"
+]
+],
+
+[
+"Posisi duduk · inspeksi",
+[
+"Nilai payudara dengan tangan di samping, menekan pinggang dengan siku ke belakang, dan tangan di atas kepala",
+"Inspeksi dari arah depan dan samping",
+"Nilai ukuran, simetri, bentuk, kulit, jaringan parut, puting/areola, eritema, retraksi, discharge"
+]
+],
+
+[
+"Posisi duduk · kelenjar limfe",
+[
+"Pasien dan pemeriksa duduk saling berhadapan",
+"Palpasi kelenjar limfe axilla",
+"Palpasi supraklavikular",
+"Palpasi infraklavikular",
+"Palpasi mammaria interna; nilai pembesaran/kekenyalan"
+]
+],
+
+[
+"Posisi berbaring",
+[
+"Pasien berbaring, bahu diganjal bantal, tangan di belakang kepala, pemeriksa di kanan",
+"Inspeksi payudara: ukuran, simetri, bentuk, kulit, parut, puting/areola, eritema, retraksi, discharge",
+"Palpasi sisi payudara sehat terlebih dahulu",
+"Palpasi dengan ujung tiga jari tengah gerakan sirkular; nilai konsistensi, elastisitas, kekenyalan, nodul/massa",
+"Palpasi nipple dan areola: elastisitas, discharge, retraksi, pendataran, edema",
+"Periksa kedua payudara dengan cara yang sama"
+]
+],
+
+[
+"Penutup",
+[
+"Berikan informasi hasil pemeriksaan dan follow-up"
+]
+]
+
+]
+},
+
+
+{
+id:"visum",
+title:"Visum et Repertum",
+sections:[
+
+[
+"Pembuka & pendahuluan",
+[
+"Pastikan kata 'Pro justitia' pada formulir",
+"Jelaskan tindakan, tujuan, cara, dan manfaat visum et repertum",
+"Tulis identitas peminta visum",
+"Tulis identitas dokter pemeriksa",
+"Tanyakan/tulis identitas pasien sesuai surat permintaan",
+"Tulis kapan dan di mana pemeriksaan dilakukan"
+]
+],
+
+[
+"Pemberitaan · anamnesis & pemeriksaan",
+[
+"Anamnesis/wawancara kronologis tentang kejadian yang diduga kekerasan/tindak pidana",
+"Pemeriksaan fisik dari kepala sampai kaki dan tulis keadaan umum/status lokalis",
+"Vital sign dianggap sudah dilakukan",
+"Deskripsikan jumlah luka",
+"Lokasi luka: regio anatomi",
+"Lokasi luka: garis koordinat/referensi tubuh",
+"Bentuk luka sebelum dirapatkan",
+"Bentuk luka setelah dirapatkan",
+"Ukuran luka sebelum dirapatkan",
+"Ukuran luka setelah dirapatkan",
+"Garis batas luka: bentuk teratur/tidak, tepi rata/tidak, sudut/jumlah/runcing/tidak",
+"Bagian dalam batas luka: tebing, jembatan jaringan, dasar luka, warna, perabaan, benda asing",
+"Sekitar luka: memar dan bekuan darah"
+]
+],
+
+[
+"Kesimpulan",
+[
+"Tuliskan identitas korban",
+"Tentukan jenis luka",
+"Tentukan benda penyebab",
+"Jelaskan bagaimana benda menimbulkan luka",
+"Tentukan akibat/derajat luka"
+]
+],
+
+[
+"Penutup",
+[
+"Nyatakan keterangan dibuat dengan mengingat sumpah/janji dokter dan bubuhkan tanda tangan"
+]
+]
+
+]
+},
+
+
+{
+id:"injection",
+title:"Teknik Injeksi",
+sections:[
+
+[
+"Persiapan",
+[
+"Inform consent; tentukan lokasi, posisi, dan skin test hanya bila ada indikasi",
+"Siapkan alat, obat, dan bahan",
+"Cuci tangan dan gunakan sarung tangan bersih/nonsteril kecuali indikasi steril khusus",
+"Bersihkan kulit melingkar dari dalam ke luar"
+]
+],
+
+[
+"Intravena",
+[
+"Tentukan vena dan pasang turniket proksimal",
+"Tusukkan jarum sudut 15–30° bevel ke atas mengikuti arah vena",
+"Aspirasi; lepaskan turniket sambil fiksasi, masukkan obat perlahan, cabut jarum sambil menekan kasa"
+]
+],
+
+[
+"Intramuskular",
+[
+"Fiksasi otot, masukkan jarum 90°",
+"Aspirasi sesuai jenis obat/lokasi/protokol; bila tidak ada darah dorong obat perlahan"
+]
+],
+
+[
+"Subkutan",
+[
+"Fiksasi kulit, tusuk perlahan 45°",
+"Aspirasi sesuai jenis obat/lokasi/protokol; bila tidak ada darah dorong obat perlahan"
+]
+],
+
+[
+"Intrakutan",
+[
+"Pegang erat lengan pasien, arahkan spuit sudut 15°",
+"Tusukkan pada epidermis, dorong cairan sampai timbul benjolan, cabut spuit"
+]
+],
+
+[
+"Pasca penyuntikan",
+[
+"Jika berdarah, tekan kasa steril sampai perdarahan berhenti",
+"Rapikan pasien dan alat; kembalikan posisi nyaman; lepaskan sarung tangan",
+"Observasi pasien, catat tindakan, bubuhkan tanda tangan dan nama terang"
+]
+]
+
+]
+},
+
+
+{
+id:"iva",
+title:"Pemeriksaan IVA",
+sections:[
+
+[
+"Konseling pra-pemeriksaan",
+[
+"Menyapa dan memperkenalkan diri",
+"Menanyakan kesiapan pasien",
+"Jelaskan cara, tujuan, dan efek pemeriksaan secara benar/jelas/lengkap"
+]
+],
+
+[
+"Persiapan",
+[
+"Siapkan alat dan bahan",
+"Minta pasien mengosongkan kandung kemih",
+"Minta pasien melepas pakaian bagian bawah",
+"Posisikan litotomi dan tutup area pinggang hingga lutut dengan kain",
+"Cuci tangan 6 langkah dan pakai sarung tangan steril"
+]
+],
+
+[
+"Prosedur",
+[
+"Bersihkan genitalia eksterna dengan kasa NaCl 0,9%/aquabidest",
+"Inspeksi genitalia eksterna",
+"Pisahkan labia dan masukkan spekulum yang sudah dioles jelly perlahan",
+"Atur spekulum sampai serviks terlihat jelas",
+"Bersihkan serviks dari cairan/darah/sekret dengan kasa steril",
+"Inspeksi serviks: bila curiga kanker (massa berbenjol, rapuh, mudah berdarah), hentikan dan rujuk",
+"Identifikasi SSK: bila tidak tampak, hentikan IVA dan sarankan skrining lain (Pap smear/HPV DNA)",
+"Jika SSK tampak, oleskan asam asetat 3–5% ke seluruh permukaan serviks",
+"Tunggu 1 menit; nilai acetowhite epithelium, batas regular/irregular, dan lokasi arah jam",
+"Bersihkan sisa asam asetat dengan kasa NaCl 0,9%",
+"Keluarkan spekulum",
+"Buang bahan sekali pakai; alat reusable direndam klorin 0,5% selama 10 menit",
+"Pemeriksaan selesai, cuci tangan"
+]
+],
+
+[
+"Konseling pasca-pemeriksaan",
+[
+"Jika IVA negatif: beri tahu kapan kembali untuk pemeriksaan (3–5 tahun)",
+"Jika IVA positif: jelaskan hasil dan rencana rujuk",
+"Berikan kesempatan pasien bertanya tentang hasil dan rencana selanjutnya"
+]
+]
+
+]
+}
+
+];
+
+
+/* ======================================================
+   SMART PLAN ROTATION
+====================================================== */
+
+const genericRotation={
+
+Briefing:[
 "cek format station",
-
 "buat daftar skill",
-
 "cek alat & komunikasi",
-
 "simulasi alur station"
-
 ],
 
-
-"OSCE":[
-
-"anamnesis & komunikasi",
-
-"pemeriksaan fisik",
-
-"prosedur & safety",
-
-"verbal rehearsal",
-
-"mini mock OSCE"
-
-],
-
-
-"Praktikum":[
-
+Praktikum:[
 "alat & preparat",
-
 "prinsip pemeriksaan",
-
 "interpretasi hasil",
-
 "kesalahan umum",
-
 "rapid recall"
-
 ],
 
-
-"Ujian Blok":[
-
-"anatomi & fisiologi dasar",
-
-"axis hormon",
-
-"feedback mechanism",
-
-"patofisiologi",
-
-"latihan soal",
-
-"error log"
-
-],
-
-
-"UAS":[
-
+UAS:[
 "review kuliah",
-
 "active recall",
-
 "latihan soal",
-
 "weak-topic repair",
-
 "rapid review"
-
 ]
 
 };
 
 
-/* ==========================================================
-   OSCE & PRAKTIKUM
-========================================================== */
+/* ======================================================
+   STORAGE
+====================================================== */
 
-const osceSkills = [
-
-"Opening dan memperkenalkan diri",
-
-"Identitas pasien",
-
-"Keluhan utama",
-
-"Riwayat penyakit sekarang",
-
-"Riwayat penyakit dahulu",
-
-"Riwayat obat",
-
-"Riwayat keluarga",
-
-"Komunikasi & empati",
-
-"Pemeriksaan fisik sistematis",
-
-"Cuci tangan & safety",
-
-"Menyimpulkan temuan",
-
-"Menutup konsultasi"
-
-];
-
-
-const practicals = [
-
-"Farmakoterapi",
-
-"Parasitologi",
-
-"Biokimia Klinis",
-
-"Mikrobiologi"
-
-];
-
-
-/* ==========================================================
-   LOCAL STORAGE
-========================================================== */
-
-let done =
+let done=
 JSON.parse(
-localStorage.getItem("divaDone")
-|| "{}"
+localStorage.getItem("divaDone")||"{}"
 );
 
-
-let busy =
+let busy=
 JSON.parse(
-localStorage.getItem("divaBusy")
-|| "[]"
+localStorage.getItem("divaBusy")||"[]"
 );
 
-
-let examStatus =
+let examStatus=
 JSON.parse(
-localStorage.getItem("divaExamStatus")
-|| "{}"
+localStorage.getItem("divaExamStatus")||"{}"
 );
 
-
-let examProgressData =
+let examProgressData=
 JSON.parse(
-localStorage.getItem("divaExamProgress")
-|| "{}"
+localStorage.getItem("divaExamProgress")||"{}"
 );
 
-
-let osceDone =
+let osceScores=
 JSON.parse(
-localStorage.getItem("divaOSCE")
-|| "{}"
+localStorage.getItem("divaOSCEScores")||"{}"
 );
 
-
-let prakStatus =
+let oscePractice=
 JSON.parse(
-localStorage.getItem("divaPrak")
-|| "{}"
+localStorage.getItem("divaOSCEPractice")||"{}"
+);
+
+let blockStatus=
+JSON.parse(
+localStorage.getItem("divaBlockStatus")||"{}"
 );
 
 
@@ -1689,21 +2040,26 @@ JSON.stringify(examProgressData)
 );
 
 localStorage.setItem(
-"divaOSCE",
-JSON.stringify(osceDone)
+"divaOSCEScores",
+JSON.stringify(osceScores)
 );
 
 localStorage.setItem(
-"divaPrak",
-JSON.stringify(prakStatus)
+"divaOSCEPractice",
+JSON.stringify(oscePractice)
+);
+
+localStorage.setItem(
+"divaBlockStatus",
+JSON.stringify(blockStatus)
 );
 
 }
 
 
-/* ==========================================================
-   BASIC DATE FUNCTIONS
-========================================================== */
+/* ======================================================
+   DATE HELPERS
+====================================================== */
 
 function isoToday(){
 
@@ -1717,12 +2073,10 @@ return new Date()
 function examDate(e){
 
 return new Date(
-
 e.date+
 "T"+
 e.time+
 ":00+07:00"
-
 );
 
 }
@@ -1731,15 +2085,11 @@ e.time+
 function upcoming(){
 
 return exams
-
 .filter(
-e =>
-examDate(e)>=new Date()
+e=>examDate(e)>=new Date()
 )
-
 .sort(
-(a,b)=>
-examDate(a)-examDate(b)
+(a,b)=>examDate(a)-examDate(b)
 );
 
 }
@@ -1748,17 +2098,11 @@ examDate(a)-examDate(b)
 function daysUntil(d){
 
 return Math.max(
-
 0,
-
 Math.ceil(
-
-(d-new Date())
-/
+(d-new Date())/
 86400000
-
 )
-
 );
 
 }
@@ -1767,47 +2111,26 @@ Math.ceil(
 function formatDate(s){
 
 return new Date(
-
-s+
-"T00:00:00+07:00"
-
+s+"T00:00:00+07:00"
 )
-
 .toLocaleDateString(
-
 "id-ID",
-
 {
-
 weekday:"short",
-
 day:"numeric",
-
 month:"short"
-
 }
-
 );
 
 }
 
 
-/* ==========================================================
-   CAMPUS / BUSY
-========================================================== */
-
 function campusFor(date){
 
 return campus
-
-.filter(
-x =>
-x[0]===date
-)
-
+.filter(x=>x[0]===date)
 .sort(
-(a,b)=>
-a[1].localeCompare(b[1])
+(a,b)=>a[1].localeCompare(b[1])
 );
 
 }
@@ -1816,15 +2139,9 @@ a[1].localeCompare(b[1])
 function busyFor(date){
 
 return busy
-
-.filter(
-x =>
-x.date===date
-)
-
+.filter(x=>x.date===date)
 .sort(
-(a,b)=>
-a.time.localeCompare(b.time)
+(a,b)=>a.time.localeCompare(b.time)
 );
 
 }
@@ -1833,16 +2150,15 @@ a.time.localeCompare(b.time)
 function examFor(date){
 
 return exams.filter(
-x =>
-x.date===date
+x=>x.date===date
 );
 
 }
 
 
-/* ==========================================================
-   DAILY LOAD
-========================================================== */
+/* ======================================================
+   LOAD
+====================================================== */
 
 function dayLoad(date){
 
@@ -1851,41 +2167,21 @@ let hours=0;
 campusFor(date)
 .forEach(x=>{
 
-let start=
-x[1]
-.split(":")
-.map(Number);
+let a=
+x[1].split(":").map(Number);
 
-let end=
-x[2]
-.split(":")
-.map(Number);
+let b=
+x[2].split(":").map(Number);
 
-hours +=
-
-(
-end[0]
-+
-end[1]/60
-
-)
-
+hours+=
+(b[0]+b[1]/60)
 -
-
-(
-start[0]
-+
-start[1]/60
-);
+(a[0]+a[1]/60);
 
 });
 
-
-hours +=
-busyFor(date).length
-*
-1.5;
-
+hours+=
+busyFor(date).length*1.5;
 
 return hours;
 
@@ -1894,22 +2190,21 @@ return hours;
 
 function loadLabel(date){
 
-let h=
-dayLoad(date);
+let h=dayLoad(date);
 
 if(h>=6)
-return [
+return[
 "PADAT",
 "load-high"
 ];
 
 if(h>=3)
-return [
+return[
 "SEDANG",
 "load-mid"
 ];
 
-return [
+return[
 "LONGGAR",
 "load-low"
 ];
@@ -1917,27 +2212,23 @@ return [
 }
 
 
-/* ==========================================================
-   EXAM PHASE
-========================================================== */
+/* ======================================================
+   STUDY PHASE
+====================================================== */
 
-function daysToExam(
-exam,
-date
-){
-
-const a=
-new Date(
-date+
-"T00:00:00+07:00"
-);
-
-const b=
-examDate(exam);
+function daysToExam(exam,date){
 
 return Math.ceil(
 
-(b-a)
+(
+examDate(exam)
+-
+new Date(
+date+
+"T00:00:00+07:00"
+)
+)
+
 /
 86400000
 
@@ -1946,34 +2237,85 @@ return Math.ceil(
 }
 
 
-function studyPhase(
-exam,
-date
-){
+function studyPhase(exam,date){
 
-const d=
-daysToExam(
-exam,
-date
-);
+let d=
+daysToExam(exam,date);
 
 if(d<=1)
-return "H-1";
+return"H-1";
 
 if(d<=3)
-return "H-3";
+return"H-3";
 
 if(d<=7)
-return "H-7";
+return"H-7";
 
-return "BUILD";
+return"BUILD";
 
 }
 
 
-/* ==========================================================
-   MATERIAL ROTATION
-========================================================== */
+function specialMaterial(
+exam,
+date,
+index
+){
+
+let day=
+
+new Date(
+date+
+"T00:00:00+07:00"
+)
+.getDate();
+
+
+if(
+exam.type==="OSCE"
+){
+
+return osceSkills[
+(day+index)
+%
+osceSkills.length
+].title;
+
+}
+
+
+if(
+exam.type==="Ujian Blok"
+){
+
+return blockFlat[
+(day+index)
+%
+blockFlat.length
+].item;
+
+}
+
+
+let list=
+
+genericRotation[
+exam.type
+]
+
+||
+
+genericRotation.UAS;
+
+
+return list[
+(day+index)
+%
+list.length
+];
+
+}
+
 
 function phaseTask(
 exam,
@@ -1981,86 +2323,30 @@ date,
 index
 ){
 
-const phase=
-studyPhase(
+let phase=
+studyPhase(exam,date);
+
+let pick=
+specialMaterial(
 exam,
-date
-);
-
-
-const list=
-
-rotation[exam.type]
-
-||
-
-rotation["UAS"];
-
-
-const dateNumber=
-
-new Date(
-
-date+
-"T00:00:00+07:00"
-
-)
-
-.getDate();
-
-
-const pick=
-
-list[
-(
-dateNumber
-+
+date,
 index
-)
-%
-list.length
-];
-
-
-if(
-phase==="H-1"
-){
-
-return (
-
-"Rapid recall + checklist akhir"
-
 );
 
-}
+
+if(phase==="H-1")
+return pick+
+" · rapid recall + checklist akhir";
 
 
-if(
-phase==="H-3"
-){
-
-return (
-
-pick+
-" + latihan soal"
-
-);
-
-}
+if(phase==="H-3")
+return pick+
+" · latihan soal/simulasi";
 
 
-if(
-phase==="H-7"
-){
-
-return (
-
-pick+
-" + active recall"
-
-);
-
-}
+if(phase==="H-7")
+return pick+
+" · active recall";
 
 
 return pick;
@@ -2068,34 +2354,27 @@ return pick;
 }
 
 
-/* ==========================================================
-   TIME FUNCTIONS
-========================================================== */
+/* ======================================================
+   TIME
+====================================================== */
 
 function latestEnd(date){
 
-const events=[
+let e=[
 
 ...campusFor(date)
-.map(
-x=>x[2]
-),
+.map(x=>x[2]),
 
 ...busyFor(date)
-.map(
-x=>x.end||x.time
-)
+.map(x=>x.end||x.time)
 
 ];
 
-
-if(!events.length)
-return null;
-
-
-return events
-.sort()
-.slice(-1)[0];
+return e.length
+?
+e.sort().slice(-1)[0]
+:
+null;
 
 }
 
@@ -2105,38 +2384,17 @@ time,
 mins
 ){
 
-let [
-h,
-m
-]=
-time
-.split(":")
-.map(Number);
+let[h,m]=
+time.split(":").map(Number);
 
+let t=
+h*60+m+mins;
 
-let total=
-h*60
-+
-m
-+
-mins;
+return
 
-
-let hh=
-Math.floor(
-total/60
+String(
+Math.floor(t/60)%24
 )
-%
-24;
-
-
-let mm=
-total%60;
-
-
-return (
-
-String(hh)
 .padStart(2,"0")
 
 +
@@ -2145,27 +2403,24 @@ String(hh)
 
 +
 
-String(mm)
-.padStart(2,"0")
-
-);
+String(t%60)
+.padStart(2,"0");
 
 }
 
 
-/* ==========================================================
-   SMART STUDY ALGORITHM
-========================================================== */
+/* ======================================================
+   SMART STUDY
+====================================================== */
 
 function studySlots(date){
 
-const future=
+let future=
 
 exams
-
 .filter(
 
-e =>
+e=>
 
 examDate(e)
 >
@@ -2175,135 +2430,99 @@ date+
 )
 
 )
-
 .sort(
-
-(a,b)=>
-
-examDate(a)
--
-examDate(b)
-
+(a,b)=>examDate(a)-examDate(b)
 );
 
 
 if(!future.length)
-return [];
+return[];
 
 
-const load=
+let load=
 dayLoad(date);
 
-
-const todayExam=
+let hasExam=
 examFor(date).length>0;
 
-
-const end=
+let end=
 latestEnd(date);
 
+let start="19:30";
 
-let startEvening=
-"19:30";
-
-
-/* BUFFER SETELAH KEGIATAN */
 
 if(end){
 
-const hour=
-Number(
-end.split(":")[0]
-);
+let h=
++end.split(":")[0];
 
+start=
 
-if(hour>=18){
+h>=18
+?
+addMinutes(end,90)
 
-startEvening=
-addMinutes(
-end,
-90
-);
+:
 
-}
+h>=15
+?
+addMinutes(end,120)
 
-else if(hour>=15){
+:
 
-startEvening=
-addMinutes(
-end,
-120
-);
+h>=12
+?
+addMinutes(end,150)
 
-}
+:
 
-else if(hour>=12){
-
-startEvening=
-addMinutes(
-end,
-150
-);
-
-}
+start;
 
 }
 
 
-/* PRIORITY EXAMS */
-
-const first=
+let first=
 future[0];
 
-
-const second=
-future[1]
-||
-first;
+let second=
+future[1]||first;
 
 
-/* HARI ADA UJIAN */
+if(hasExam){
 
-if(todayExam){
+return[[
 
-return [
-
-[
-startEvening,
+start,
 
 "15–20 menit",
 
-"Light recall • "
-+
-first.title,
+"Light recall · "+
+specialMaterial(
+first,
+date,
+0
+),
 
 studyPhase(
 first,
 date
 )
 
-]
-
-];
+]];
 
 }
 
 
-/* SUPER PADAT */
-
 if(load>=7){
 
-return [
+return[[
 
-[
-startEvening,
+start,
 
 "20 menit",
 
-first.title
-+
-" • "
-+
+first.title+
+" · "+
 phaseTask(
 first,
 date,
@@ -2315,35 +2534,23 @@ first,
 date
 )
 
-]
-
-];
+]];
 
 }
 
 
-/* SEDANG */
-
 if(load>=4){
 
-const secondTime=
-addMinutes(
-startEvening,
-50
-);
-
-
-return [
+return[
 
 [
-startEvening,
+
+start,
 
 "30 menit",
 
-first.title
-+
-" • "
-+
+first.title+
+" · "+
 phaseTask(
 first,
 date,
@@ -2357,16 +2564,17 @@ date
 
 ],
 
-
 [
-secondTime,
+
+addMinutes(
+start,
+50
+),
 
 "20 menit",
 
-second.title
-+
-" • "
-+
+second.title+
+" · "+
 phaseTask(
 second,
 date,
@@ -2385,19 +2593,16 @@ date
 }
 
 
-/* HARI LONGGAR */
-
-return [
+return[
 
 [
+
 "09:00",
 
 "45 menit",
 
-first.title
-+
-" • "
-+
+first.title+
+" · "+
 phaseTask(
 first,
 date,
@@ -2411,16 +2616,14 @@ date
 
 ],
 
-
 [
+
 "14:00",
 
 "45 menit",
 
-second.title
-+
-" • "
-+
+second.title+
+" · "+
 phaseTask(
 second,
 date,
@@ -2434,15 +2637,14 @@ date
 
 ],
 
-
 [
+
 "20:00",
 
 "25 menit",
 
-first.title
-+
-" • spaced repetition",
+first.title+
+" · spaced repetition",
 
 "RECALL"
 
@@ -2453,18 +2655,16 @@ first.title
 }
 
 
-/* ==========================================================
-   DASHBOARD STATS
-========================================================== */
+/* ======================================================
+   STATS
+====================================================== */
 
 function renderStats(){
 
-const n=
+let n=
 upcoming()[0];
 
-
 nextExam.textContent=
-
 n
 ?
 n.type
@@ -2473,7 +2673,6 @@ n.type
 
 
 daysLeft.textContent=
-
 n
 ?
 daysUntil(
@@ -2484,36 +2683,30 @@ examDate(n)
 
 
 doneCount.textContent=
-
 Object.values(done)
 .filter(Boolean)
 .length;
 
 
 busyCount.textContent=
-
 busy.length;
 
 }
 
 
-/* ==========================================================
-   TODAY TASKS
-========================================================== */
+/* ======================================================
+   TODAY
+====================================================== */
 
 function makeTasks(){
 
-const date=
+let date=
 isoToday();
 
+let out=
 
-const slots=
-studySlots(date);
-
-
-let output=
-
-slots.map(
+studySlots(date)
+.map(
 (s,i)=>({
 
 id:
@@ -2521,8 +2714,7 @@ date+
 "smart"+
 i,
 
-title:
-s[2],
+title:s[2],
 
 minutes:
 parseInt(s[1])
@@ -2531,7 +2723,7 @@ parseInt(s[1])
 );
 
 
-output.push({
+out.push({
 
 id:
 date+
@@ -2540,83 +2732,63 @@ date+
 title:
 "Reflection: apa yang masih bikin bingung?",
 
-minutes:
-5
+minutes:5
 
 });
 
 
-return output;
+return out;
 
 }
 
 
-/* ==========================================================
-   RENDER TODAY
-========================================================== */
-
 function renderToday(){
 
-const date=
+let date=
 isoToday();
+
+let load=
+loadLabel(date);
+
+let tasks=
+makeTasks();
 
 
 todayDate.textContent=
 
 new Date()
-
 .toLocaleDateString(
 
 "id-ID",
 
 {
-
 weekday:"long",
-
 day:"numeric",
-
 month:"long",
-
 year:"numeric"
-
 }
 
 );
 
 
-const load=
-loadLabel(date);
-
-
 todayLoadText.textContent=
 
-"Hari ini termasuk "
-+
-load[0].toLowerCase()
-+
+"Hari ini termasuk "+
+load[0].toLowerCase()+
 ". Target belajar disesuaikan dengan jadwal kampus dan kesibukanmu.";
 
 
-const tasks=
-makeTasks();
-
-
-taskList.innerHTML=
-"";
+taskList.innerHTML="";
 
 
 tasks.forEach(t=>{
 
-const div=
+let div=
 document.createElement("div");
-
 
 div.className=
 
-"task"
-
-+
-
+"task"+
 (
 done[t.id]
 ?
@@ -2641,7 +2813,6 @@ this.checked
 "
 >
 
-
 <div class="tasktext">
 
 <b>
@@ -2653,7 +2824,6 @@ ${t.minutes} menit
 </div>
 
 </div>
-
 
 <button
 class="soft"
@@ -2668,36 +2838,33 @@ Kecilkan
 
 `;
 
-
-taskList
-.appendChild(div);
+taskList.appendChild(div);
 
 });
-
-
-const completed=
-
-tasks.filter(
-x =>
-done[x.id]
-)
-.length;
 
 
 progressBar.style.width=
 
 (
-completed
+tasks.filter(
+x=>done[x.id]
+).length
+
 /
+
 tasks.length
+
 *
+
 100
+
 )
+
 +
 "%";
 
 
-const n=
+let n=
 upcoming()[0];
 
 
@@ -2711,7 +2878,8 @@ examDate(n)
 
 priority.innerHTML=`
 
-<span class="badge
+<span class="
+badge
 ${
 d<=3
 ?
@@ -2730,10 +2898,7 @@ ${n.type}
 </span>
 
 
-<h3 style="
-margin:
-8px 0
-">
+<h3 style="margin:8px 0">
 
 ${n.title}
 
@@ -2743,9 +2908,7 @@ ${n.title}
 <div class="muted">
 
 ${formatDate(n.date)}
-
 ·
-
 ${n.time}
 
 </div>
@@ -2767,24 +2930,17 @@ renderTodayTimeline();
 }
 
 
-/* ==========================================================
-   TODAY TIMELINE
-========================================================== */
-
 function renderTodayTimeline(){
 
-const date=
+let date=
 isoToday();
-
 
 let items=[];
 
 
-/* CAMPUS */
-
 campusFor(date)
-
-.forEach(x=>
+.forEach(
+x=>
 
 items.push([
 
@@ -2801,11 +2957,9 @@ x[3],
 );
 
 
-/* BUSY */
-
 busyFor(date)
-
-.forEach(x=>
+.forEach(
+x=>
 
 items.push([
 
@@ -2813,10 +2967,8 @@ x.time,
 
 x.end||"",
 
-x.title
-+
-" · "
-+
+x.title+
+" · "+
 x.type,
 
 "busy"
@@ -2826,11 +2978,9 @@ x.type,
 );
 
 
-/* STUDY */
-
 studySlots(date)
-
-.forEach(x=>
+.forEach(
+x=>
 
 items.push([
 
@@ -2838,12 +2988,9 @@ x[0],
 
 "",
 
-x[2]
-+
-" ("
-+
-x[1]
-+
+x[2]+
+" ("+
+x[1]+
 ")",
 
 "study"
@@ -2855,9 +3002,7 @@ x[1]
 
 items.sort(
 (a,b)=>
-a[0].localeCompare(
-b[0]
-)
+a[0].localeCompare(b[0])
 );
 
 
@@ -2867,24 +3012,24 @@ items.length
 
 ?
 
-items.map(
+items
+.map(
 x=>`
 
-<div class="event ${x[3]}">
+<div class="
+event
+${x[3]}
+">
 
 <div class="time">
 
 ${x[0]}
-
 ${x[1]?"–"+x[1]:""}
 
 </div>
 
-
 <div>
-
 ${x[2]}
-
 </div>
 
 </div>
@@ -2904,14 +3049,13 @@ Tidak ada agenda hari ini.
 }
 
 
-/* ==========================================================
+/* ======================================================
    SMART WEEK
-========================================================== */
+====================================================== */
 
 function renderSmart(){
 
-smartWeek.innerHTML=
-"";
+smartWeek.innerHTML="";
 
 
 for(
@@ -2923,36 +3067,28 @@ i++
 let d=
 new Date();
 
-
 d.setDate(
 d.getDate()+i
 );
-
 
 let iso=
 d.toISOString()
 .slice(0,10);
 
-
 let load=
 loadLabel(iso);
 
-
-let campusItems=
+let ci=
 campusFor(iso);
 
-
-let busyItems=
+let bi=
 busyFor(iso);
-
 
 let slots=
 studySlots(iso);
 
-
 let div=
 document.createElement("div");
-
 
 div.className=
 "daycard";
@@ -2962,8 +3098,6 @@ div.innerHTML=`
 
 <div class="daytop">
 
-<div>
-
 <b>
 
 ${
@@ -2972,22 +3106,15 @@ d.toLocaleDateString(
 "id-ID",
 
 {
-
 weekday:"long",
-
 day:"numeric",
-
 month:"short"
-
 }
 
 )
 }
 
 </b>
-
-</div>
-
 
 <span class="
 load
@@ -3002,7 +3129,7 @@ ${load[0]}
 
 
 ${
-campusItems
+ci
 .map(
 x=>`
 
@@ -3013,15 +3140,11 @@ section
 ">
 
 <div class="time">
-
 ${x[1]}
-
 </div>
 
 <div>
-
 ${x[3]}
-
 </div>
 
 </div>
@@ -3033,7 +3156,7 @@ ${x[3]}
 
 
 ${
-busyItems
+bi
 .map(
 x=>`
 
@@ -3044,15 +3167,11 @@ section
 ">
 
 <div class="time">
-
 ${x.time}
-
 </div>
 
 <div>
-
 ${x.title}
-
 </div>
 
 </div>
@@ -3075,29 +3194,21 @@ section
 ">
 
 <div class="time">
-
 ${x[0]}
-
 </div>
 
 <div>
 
 <b>
-
 ${x[2]}
-
 </b>
 
 <span class="phase">
-
 ${x[3]}
-
 </span>
 
 <div class="small">
-
 ${x[1]}
-
 </div>
 
 </div>
@@ -3112,40 +3223,31 @@ ${x[1]}
 `;
 
 
-smartWeek
-.appendChild(div);
+smartWeek.appendChild(div);
 
 }
 
 }
 
 
-/* ==========================================================
-   CAMPUS SCHEDULE
-========================================================== */
+/* ======================================================
+   CAMPUS
+====================================================== */
 
 function renderCampus(){
 
-campusSchedule.innerHTML=
-"";
+campusSchedule.innerHTML="";
 
-
-let dates=
 
 [
 ...new Set(
-campus.map(
-x=>x[0]
+campus.map(x=>x[0])
 )
-)
-];
-
-
-dates.forEach(date=>{
+]
+.forEach(date=>{
 
 let div=
 document.createElement("div");
-
 
 div.className=
 "daycard";
@@ -3162,7 +3264,6 @@ ${formatDate(date)}
 +
 
 campusFor(date)
-
 .map(
 x=>`
 
@@ -3180,45 +3281,37 @@ ${x[2]}
 </div>
 
 <div>
-
 ${x[3]}
-
 </div>
 
 </div>
 
 `
 )
-
 .join("");
 
 
-campusSchedule
-.appendChild(div);
+campusSchedule.appendChild(div);
 
 });
 
 }
 
 
-/* ==========================================================
-   TASK CONTROLS
-========================================================== */
+/* ======================================================
+   TASK
+====================================================== */
 
 function toggleTask(
 id,
 val
 ){
 
-done[id]=
-val;
-
+done[id]=val;
 
 save();
 
-
 renderToday();
-
 
 renderStats();
 
@@ -3228,12 +3321,8 @@ renderStats();
 function shrink(btn){
 
 let x=
-btn
-.parentElement
-.querySelector(
-".small"
-);
-
+btn.parentElement
+.querySelector(".small");
 
 let n=
 parseInt(
@@ -3247,9 +3336,7 @@ x.textContent=
 
 Math.max(
 5,
-Math.floor(
-n/2
-)
+Math.floor(n/2)
 )
 
 +
@@ -3262,18 +3349,12 @@ btn.textContent=
 }
 
 
-/* ==========================================================
-   TIRED MODE
-========================================================== */
-
 function tiredMode(){
 
 document
-
 .querySelectorAll(
 "#taskList .small"
 )
-
 .forEach(x=>{
 
 let n=
@@ -3283,14 +3364,11 @@ x.textContent
 ||
 25;
 
-
 x.textContent=
 
 Math.max(
 5,
-Math.floor(
-n/2
-)
+Math.floor(n/2)
 )
 
 +
@@ -3300,56 +3378,41 @@ n/2
 
 
 alert(
-
 "Mode capek aktif 🤍 Target hari ini diperkecil."
-
 );
 
 }
 
 
-/* ==========================================================
-   RESET TODAY
-========================================================== */
-
 function resetToday(){
 
-let prefix=
+let p=
 isoToday();
 
-
 Object.keys(done)
-
 .filter(
-k =>
-k.startsWith(prefix)
+k=>k.startsWith(p)
 )
-
 .forEach(
-k =>
-delete done[k]
+k=>delete done[k]
 );
-
 
 save();
 
-
 renderToday();
-
 
 renderStats();
 
 }
 
 
-/* ==========================================================
+/* ======================================================
    EXAM PROGRESS
-========================================================== */
+====================================================== */
 
 function renderExamProgress(){
 
-examProgress.innerHTML=
-"";
+examProgress.innerHTML="";
 
 
 exams.forEach(e=>{
@@ -3359,22 +3422,18 @@ daysUntil(
 examDate(e)
 );
 
-
 let p=
 examProgressData[e.id]
 ||
 0;
 
-
-let status=
+let s=
 examStatus[e.id]
 ||
 "Belum";
 
-
 let box=
 document.createElement("div");
-
 
 box.className=
 "examcard";
@@ -3384,11 +3443,10 @@ box.innerHTML=`
 
 <div class="examrow">
 
-
 <div>
 
-
-<span class="badge
+<span class="
+badge
 ${
 d<=3
 ?
@@ -3423,9 +3481,7 @@ muted
 ">
 
 ${formatDate(e.date)}
-
 ·
-
 ${e.time}
 
 </div>
@@ -3446,25 +3502,25 @@ this.value
 >
 
 <option
-${status==="Belum"?"selected":""}
+${s==="Belum"?"selected":""}
 >
 Belum
 </option>
 
 <option
-${status==="Belajar"?"selected":""}
+${s==="Belajar"?"selected":""}
 >
 Belajar
 </option>
 
 <option
-${status==="Paham"?"selected":""}
+${s==="Paham"?"selected":""}
 >
 Paham
 </option>
 
 <option
-${status==="Ulang"?"selected":""}
+${s==="Ulang"?"selected":""}
 >
 Ulang
 </option>
@@ -3474,13 +3530,9 @@ Ulang
 
 <input
 type="range"
-
 min="0"
-
 max="100"
-
 value="${p}"
-
 style="
 width:100%;
 margin-top:10px
@@ -3494,34 +3546,28 @@ this.value
 "
 >
 
-
 </div>
 
 
 <div
 class="ring"
-
 style="
 --p:${p}%
 "
 >
 
 <span>
-
 ${p}%
-
 </span>
 
 </div>
-
 
 </div>
 
 `;
 
 
-examProgress
-.appendChild(box);
+examProgress.appendChild(box);
 
 });
 
@@ -3530,12 +3576,10 @@ examProgress
 
 function setExamStatus(
 id,
-value
+v
 ){
 
-examStatus[id]=
-value;
-
+examStatus[id]=v;
 
 save();
 
@@ -3544,132 +3588,1163 @@ save();
 
 function setExamProgress(
 id,
-value
+v
 ){
 
 examProgressData[id]=
-Number(value);
-
+Number(v);
 
 save();
-
 
 renderExamProgress();
 
 }
 
 
-/* ==========================================================
-   OSCE / PRAKTIKUM
-========================================================== */
+/* ======================================================
+   OSCE LAB
+====================================================== */
 
-function renderSkills(){
+let osceSeconds=420;
 
-osceList.innerHTML=
+let osceInterval=null;
+
+let osceRunning=false;
+
+let speechRec=null;
+
+let mediaRecorder=null;
+
+let mediaStream=null;
+
+let audioChunks=[];
+
+let transcriptFinal="";
+
+
+function currentOsce(){
+
+return
+
+osceSkills.find(
+
+s=>
+
+s.id===
+osceSkillSelect.value
+
+)
+
+||
+
+osceSkills[0];
+
+}
+
+
+function initOsce(){
+
+osceSkillSelect.innerHTML=
 
 osceSkills
-
 .map(
-(skill,index)=>`
+s=>`
 
-<div class="skill">
-
-<input
-type="checkbox"
-
-${osceDone[index]?"checked":""}
-
-onchange="
-
-osceDone[
-${index}
-]
-=
-this.checked;
-
-save();
-
-"
->
-
-<div>
-
-${skill}
-
-</div>
-
-</div>
+<option value="${s.id}">
+${s.title}
+</option>
 
 `
 )
-
 .join("");
 
 
-prakList.innerHTML=
+changeOsceSkill();
 
-practicals
+}
 
-.map(name=>{
 
-let status=
-prakStatus[name]
+function changeOsceSkill(){
+
+stopMicOnly();
+
+resetOsceTimer();
+
+renderOsceChecklist();
+
+
+liveTranscript.textContent=
+
+"Transkrip ucapanmu akan muncul di sini bila browser mendukung Speech Recognition.";
+
+
+audioPlayback.hidden=true;
+
+audioPlayback.removeAttribute("src");
+
+
+micStatus.className=
+"micStatus";
+
+
+micStatus.textContent=
+"Mikrofon belum aktif.";
+
+}
+
+
+function flattenSkill(skill){
+
+return skill.sections
+.flatMap(
+
+([section,items])=>
+
+items.map(
+item=>({
+
+section,
+item
+
+})
+)
+
+);
+
+}
+
+
+function renderOsceChecklist(){
+
+let skill=
+currentOsce();
+
+let flat=
+flattenSkill(skill);
+
+let scores=
+osceScores[skill.id]
 ||
-"Belum";
+{};
 
 
-return `
+osceChecklistTitle.textContent=
+skill.title;
 
-<div class="examcard">
 
-<b>
+let html="";
 
-${name}
+let last="";
 
-</b>
 
+flat.forEach(
+(x,i)=>{
+
+if(
+x.section!==last
+){
+
+html+=`
+
+<div class="osceSection">
+
+${x.section}
+
+</div>
+
+`;
+
+last=x.section;
+
+}
+
+
+let v=
+scores[i];
+
+
+html+=`
+
+<div class="scoreRow">
+
+<div>
+${x.item}
+</div>
 
 <select
-class="
-select
-section
-"
+class="scoreSelect"
 
 onchange="
-
-prakStatus[
-'${name}'
-]
-=
-this.value;
-
-save();
-
+setOsceScore(
+'${skill.id}',
+${i},
+this.value
+)
 "
 >
 
 <option
-${status==="Belum"?"selected":""}
+value=""
+${v===undefined?"selected":""}
 >
 Belum
 </option>
 
 <option
-${status==="Belajar"?"selected":""}
+value="0"
+${v===0?"selected":""}
 >
-Belajar
+0 · tidak
 </option>
 
 <option
-${status==="Siap"?"selected":""}
+value="1"
+${v===1?"selected":""}
 >
-Siap
+1 · kurang
 </option>
 
 <option
-${status==="Ulang"?"selected":""}
+value="2"
+${v===2?"selected":""}
 >
-Ulang
+2 · sempurna
+</option>
+
+</select>
+
+</div>
+
+`;
+
+});
+
+
+osceChecklist.innerHTML=
+html;
+
+
+let sum=
+
+Object.values(scores)
+.reduce(
+(a,b)=>a+(Number(b)||0),
+0
+);
+
+
+let max=
+flat.length*2;
+
+
+let p=
+Math.round(
+sum/max*100
+);
+
+
+osceScoreText.textContent=
+p+"%";
+
+
+osceScoreFraction.textContent=
+
+sum+
+" / "+
+max;
+
+
+practiceCount.textContent=
+
+(
+oscePractice[
+skill.id
+]
+||
+0
+)
+
++
+" latihan tersimpan";
+
+}
+
+
+function setOsceScore(
+id,
+i,
+v
+){
+
+osceScores[id]??={};
+
+
+if(v==="")
+
+delete
+osceScores[id][i];
+
+else
+
+osceScores[id][i]=
+Number(v);
+
+
+save();
+
+renderOsceChecklist();
+
+}
+
+
+/* ================= 7 MIN TIMER ================= */
+
+function drawOsceTimer(){
+
+osceTimer.textContent=
+
+String(
+Math.floor(
+osceSeconds/60
+)
+)
+.padStart(2,"0")
+
++
+
+":"
+
++
+
+String(
+osceSeconds%60
+)
+.padStart(2,"0");
+
+}
+
+
+function resetOsceTimer(){
+
+clearInterval(
+osceInterval
+);
+
+osceInterval=null;
+
+osceRunning=false;
+
+osceSeconds=420;
+
+drawOsceTimer();
+
+}
+
+
+function pauseOsceTimer(){
+
+clearInterval(
+osceInterval
+);
+
+osceInterval=null;
+
+osceRunning=false;
+
+
+micStatus.textContent=
+
+"Timer dipause. Rekaman/transkrip tetap bisa dihentikan dengan tombol Selesai.";
+
+}
+
+
+function resumeOsceTimer(){
+
+if(
+osceInterval
+||
+osceSeconds<=0
+)
+return;
+
+
+osceRunning=true;
+
+
+osceInterval=
+
+setInterval(
+osceTick,
+1000
+);
+
+}
+
+
+function speak(msg){
+
+try{
+
+speechSynthesis.cancel();
+
+let u=
+new SpeechSynthesisUtterance(msg);
+
+u.lang=
+"id-ID";
+
+speechSynthesis.speak(u);
+
+}
+catch(e){}
+
+}
+
+
+function osceTick(){
+
+osceSeconds--;
+
+drawOsceTimer();
+
+
+if(
+osceSeconds===60
+)
+
+speak(
+"Satu menit lagi"
+);
+
+
+if(
+osceSeconds<=0
+){
+
+speak(
+"Waktu habis"
+);
+
+stopOscePractice(true);
+
+}
+
+}
+
+
+/* ================= MIC ================= */
+
+async function startOscePractice(){
+
+if(osceRunning)
+return;
+
+
+resetOsceTimer();
+
+
+osceRunning=true;
+
+transcriptFinal="";
+
+liveTranscript.textContent="";
+
+
+osceInterval=
+
+setInterval(
+osceTick,
+1000
+);
+
+
+await startMicCapture();
+
+}
+
+
+async function startMicCapture(){
+
+try{
+
+mediaStream=
+
+await navigator.mediaDevices
+.getUserMedia({
+
+audio:true
+
+});
+
+
+micStatus.className=
+"micStatus live";
+
+
+micStatus.textContent=
+
+"🎙️ Mikrofon aktif. Aku merekam latihanmu.";
+
+
+/* AUDIO RECORDER */
+
+if(
+window.MediaRecorder
+){
+
+audioChunks=[];
+
+mediaRecorder=
+new MediaRecorder(
+mediaStream
+);
+
+const mime=
+
+mediaRecorder.mimeType
+||
+"audio/webm";
+
+
+mediaRecorder.ondataavailable=
+
+e=>{
+
+if(e.data.size)
+
+audioChunks.push(
+e.data
+);
+
+};
+
+
+mediaRecorder.onstop=()=>{
+
+let blob=
+
+new Blob(
+
+audioChunks,
+
+{
+type:mime
+}
+
+);
+
+
+audioPlayback.src=
+
+URL.createObjectURL(
+blob
+);
+
+
+audioPlayback.hidden=false;
+
+};
+
+
+mediaRecorder.start();
+
+}
+
+
+/* LIVE TRANSCRIPT */
+
+startSpeechRecognition();
+
+}
+
+catch(err){
+
+micStatus.className=
+"micStatus";
+
+
+micStatus.textContent=
+
+"Mikrofon tidak bisa diakses. Cek izin mikrofon Safari/Chrome, tetapi timer tetap berjalan.";
+
+}
+
+}
+
+
+function startSpeechRecognition(){
+
+let SR=
+
+window.SpeechRecognition
+
+||
+
+window.webkitSpeechRecognition;
+
+
+if(!SR){
+
+micStatus.textContent+=
+
+" Transkrip langsung tidak didukung browser ini; rekaman audio tetap berjalan.";
+
+return;
+
+}
+
+
+speechRec=
+new SR();
+
+
+speechRec.lang=
+"id-ID";
+
+
+speechRec.continuous=true;
+
+speechRec.interimResults=true;
+
+
+speechRec.onresult=e=>{
+
+let interim="";
+
+
+for(
+let i=e.resultIndex;
+i<e.results.length;
+i++
+){
+
+let t=
+e.results[i][0].transcript;
+
+
+if(
+e.results[i].isFinal
+)
+
+transcriptFinal+=
+t+
+" ";
+
+else
+
+interim+=t;
+
+}
+
+
+liveTranscript.textContent=
+
+(
+transcriptFinal+
+interim
+)
+.trim()
+
+||
+
+"...";
+
+};
+
+
+speechRec.onerror=
+()=>{};
+
+
+speechRec.onend=()=>{
+
+if(osceRunning){
+
+try{
+
+speechRec.start();
+
+}
+catch(e){}
+
+}
+
+};
+
+
+try{
+
+speechRec.start();
+
+}
+catch(e){}
+
+}
+
+
+function stopMicOnly(){
+
+if(speechRec){
+
+try{
+
+speechRec.onend=null;
+
+speechRec.stop();
+
+}
+catch(e){}
+
+speechRec=null;
+
+}
+
+
+if(
+mediaRecorder
+&&
+mediaRecorder.state!=="inactive"
+){
+
+try{
+
+mediaRecorder.stop();
+
+}
+catch(e){}
+
+}
+
+
+mediaRecorder=null;
+
+
+if(mediaStream){
+
+mediaStream
+.getTracks()
+.forEach(
+t=>t.stop()
+);
+
+mediaStream=null;
+
+}
+
+}
+
+
+function stopOscePractice(auto=false){
+
+clearInterval(
+osceInterval
+);
+
+osceInterval=null;
+
+
+let was=
+osceRunning;
+
+
+osceRunning=false;
+
+
+stopMicOnly();
+
+
+if(was){
+
+let id=
+currentOsce().id;
+
+
+oscePractice[id]=
+
+(
+oscePractice[id]
+||
+0
+)
+
++
+1;
+
+
+save();
+
+renderOsceChecklist();
+
+}
+
+
+micStatus.className=
+"micStatus";
+
+
+micStatus.textContent=
+
+auto
+
+?
+
+"⏱️ Waktu 7 menit habis. Rekaman dihentikan."
+
+:
+
+"Latihan selesai. Kamu bisa putar ulang rekamannya di bawah.";
+
+}
+
+
+/* ======================================================
+   BLOCK TRACKER
+====================================================== */
+
+const statusWeight={
+
+"Belum":0,
+
+"Baca":.3,
+
+"Recall":.6,
+
+"Soal":.85,
+
+"Paham":1
+
+};
+
+
+function blockKey(
+g,
+item
+){
+
+return
+
+g+
+"::"+
+item;
+
+}
+
+
+function setBlockStatusByIndex(
+g,
+idx,
+v
+){
+
+let group=
+
+blockGroups.find(
+x=>x.n===g
+);
+
+
+if(!group)
+return;
+
+
+let item=
+group.items[idx];
+
+
+blockStatus[
+blockKey(
+g,
+item
+)
+]
+=
+v;
+
+
+save();
+
+renderBlockTopics();
+
+renderBlockSummary();
+
+}
+
+
+function renderBlockSummary(){
+
+let total=
+blockFlat.length;
+
+
+let score=0;
+
+let doneN=0;
+
+
+blockFlat
+.forEach(x=>{
+
+let s=
+
+blockStatus[
+blockKey(
+x.group,
+x.item
+)
+]
+
+||
+
+"Belum";
+
+
+score+=
+statusWeight[s]
+||
+0;
+
+
+if(
+s==="Paham"
+)
+
+doneN++;
+
+});
+
+
+let p=
+
+Math.round(
+score/total*100
+);
+
+
+blockProgressBar.style.width=
+p+"%";
+
+
+blockProgressText.textContent=
+p+"%";
+
+
+blockDoneText.textContent=
+
+doneN+
+" / "+
+total+
+" topik paham";
+
+}
+
+
+function renderBlockTopics(){
+
+let q=
+
+(
+document
+.getElementById(
+"blockSearch"
+)
+.value
+||
+""
+)
+.toLowerCase();
+
+
+document
+.getElementById(
+"blockTopics"
+)
+.innerHTML=
+
+blockTopicsData(q);
+
+}
+
+
+function blockTopicsData(q){
+
+return blockGroups
+
+.map(g=>{
+
+let filtered=
+
+g.items
+.filter(
+
+item=>
+
+(
+g.title+
+" "+
+item
+)
+
+.toLowerCase()
+.includes(q)
+
+);
+
+
+if(!filtered.length)
+return"";
+
+
+let avg=
+
+filtered
+.reduce(
+(a,item)=>
+
+a+
+
+(
+statusWeight[
+
+blockStatus[
+blockKey(
+g.n,
+item
+)
+]
+
+||
+
+"Belum"
+
+]
+
+||
+
+0
+),
+
+0
+)
+
+/
+
+filtered.length;
+
+
+let p=
+Math.round(
+avg*100
+);
+
+
+return`
+
+<div class="blockGroup">
+
+<div class="blockTop">
+
+<div>
+
+<span class="blockTag">
+${g.cpmk}
+</span>
+
+<h3 style="margin:7px 0 3px">
+
+${g.n}. ${g.title}
+
+</h3>
+
+</div>
+
+<span class="statusPill">
+
+${p}%
+
+</span>
+
+</div>
+
+
+<div class="progress">
+
+<i style="
+width:${p}%
+">
+</i>
+
+</div>
+
+
+<div class="blockItems">
+
+${
+filtered
+.map(item=>{
+
+let s=
+
+blockStatus[
+blockKey(
+g.n,
+item
+)
+]
+
+||
+
+"Belum";
+
+
+return`
+
+<div class="blockItem">
+
+<div>
+${item}
+</div>
+
+<select
+class="scoreSelect"
+
+onchange="
+setBlockStatusByIndex(
+${g.n},
+${g.items.indexOf(item)},
+this.value
+)
+"
+>
+
+<option
+${s==="Belum"?"selected":""}
+>
+Belum
+</option>
+
+<option
+${s==="Baca"?"selected":""}
+>
+Baca
+</option>
+
+<option
+${s==="Recall"?"selected":""}
+>
+Recall
+</option>
+
+<option
+${s==="Soal"?"selected":""}
+>
+Soal
+</option>
+
+<option
+${s==="Paham"?"selected":""}
+>
+Paham
 </option>
 
 </select>
@@ -3679,15 +4754,24 @@ Ulang
 `;
 
 })
+.join("")
+}
 
+</div>
+
+</div>
+
+`;
+
+})
 .join("");
 
 }
 
 
-/* ==========================================================
-   BUSY / ASLAB / ORGANIZATION
-========================================================== */
+/* ======================================================
+   BUSY
+====================================================== */
 
 function addBusy(e){
 
@@ -3696,8 +4780,7 @@ e.preventDefault();
 
 busy.push({
 
-id:
-Date.now(),
+id:Date.now(),
 
 title:
 bTitle.value,
@@ -3722,18 +4805,13 @@ bNote.value
 
 save();
 
-
 e.target.reset();
-
 
 renderBusy();
 
-
 renderToday();
 
-
 renderSmart();
-
 
 renderStats();
 
@@ -3743,23 +4821,19 @@ renderStats();
 function removeBusy(id){
 
 busy=
+
 busy.filter(
-x =>
-x.id!==id
+x=>x.id!==id
 );
 
 
 save();
 
-
 renderBusy();
-
 
 renderToday();
 
-
 renderSmart();
-
 
 renderStats();
 
@@ -3775,7 +4849,6 @@ busy.length
 ?
 
 busy
-
 .sort(
 (a,b)=>
 
@@ -3783,14 +4856,10 @@ busy
 a.date+
 a.time
 )
-
 .localeCompare(
-
 b.date+
 b.time
-
 )
-
 )
 
 .map(
@@ -3798,16 +4867,11 @@ x=>`
 
 <div class="task">
 
-
 <div>
 
-
 <b>
-
 ${x.title}
-
 </b>
-
 
 <div class="
 small
@@ -3815,19 +4879,15 @@ muted
 ">
 
 ${formatDate(x.date)}
-
 ·
-
 ${x.time}
 
 ${x.end?"–"+x.end:""}
 
 ·
-
 ${x.type}
 
 </div>
-
 
 ${
 x.note
@@ -3836,9 +4896,7 @@ x.note
 
 `
 <div class="small">
-
 ${x.note}
-
 </div>
 `
 
@@ -3847,13 +4905,10 @@ ${x.note}
 ""
 }
 
-
 </div>
-
 
 <button
 class="soft"
-
 onclick="
 removeBusy(
 ${x.id}
@@ -3865,53 +4920,40 @@ Hapus
 
 </button>
 
-
 </div>
 
 `
 )
-
 .join("")
 
 :
 
 `
 <div class="muted">
-
 Belum ada kesibukan tambahan.
-
 </div>
 `;
 
 }
 
 
-/* ==========================================================
+/* ======================================================
    SLEEP
-========================================================== */
+====================================================== */
 
 function saveSleep(){
 
 localStorage.setItem(
-
 "divaSleep",
-
 sleepTime.value
-
 );
-
 
 localStorage.setItem(
-
 "divaWake",
-
 wakeTime.value
-
 );
 
-
 sleepMsg.textContent=
-
 "Target tidur tersimpan ✓";
 
 }
@@ -3924,7 +4966,6 @@ localStorage.getItem(
 "divaSleep"
 );
 
-
 let w=
 localStorage.getItem(
 "divaWake"
@@ -3932,27 +4973,22 @@ localStorage.getItem(
 
 
 if(s)
-sleepTime.value=
-s;
+sleepTime.value=s;
 
 
 if(w)
-wakeTime.value=
-w;
+wakeTime.value=w;
 
 }
 
 
-/* ==========================================================
-   TIMER
-========================================================== */
+/* ======================================================
+   FOCUS TIMER
+====================================================== */
 
-let seconds=
-1500;
+let seconds=1500;
 
-
-let timerInterval=
-null;
+let timerInterval=null;
 
 
 function drawTimer(){
@@ -3960,17 +4996,11 @@ function drawTimer(){
 timer.textContent=
 
 String(
-
 Math.floor(
 seconds/60
 )
-
 )
-
-.padStart(
-2,
-"0"
-)
+.padStart(2,"0")
 
 +
 
@@ -3981,11 +5011,7 @@ seconds/60
 String(
 seconds%60
 )
-
-.padStart(
-2,
-"0"
-);
+.padStart(2,"0");
 
 }
 
@@ -3998,43 +5024,35 @@ return;
 
 timerInterval=
 
-setInterval(()=>{
+setInterval(
+()=>{
 
 seconds--;
-
 
 drawTimer();
 
 
-if(
-seconds<=0
-){
+if(seconds<=0){
 
 clearInterval(
 timerInterval
 );
 
-
-timerInterval=
-null;
-
+timerInterval=null;
 
 alert(
-
 "Sesi selesai 🤍 Istirahat 5–10 menit."
-
 );
 
-
-seconds=
-1500;
-
+seconds=1500;
 
 drawTimer();
 
 }
 
-},1000);
+},
+1000
+);
 
 }
 
@@ -4045,9 +5063,7 @@ clearInterval(
 timerInterval
 );
 
-
-timerInterval=
-null;
+timerInterval=null;
 
 }
 
@@ -4056,71 +5072,57 @@ function resetTimer(){
 
 pauseTimer();
 
-
-seconds=
-1500;
-
+seconds=1500;
 
 drawTimer();
 
 }
 
 
-/* ==========================================================
+/* ======================================================
    NAVIGATION
-========================================================== */
+====================================================== */
 
 document
-
 .querySelectorAll(
 ".nav button"
 )
-
-.forEach(button=>{
-
-
-button.onclick=()=>{
-
-
-document
-
-.querySelectorAll(
-".nav button"
-)
-
 .forEach(
-x =>
-x.classList.remove(
+b=>{
+
+b.onclick=()=>{
+
+document
+.querySelectorAll(
+".nav button"
+)
+.forEach(
+x=>x.classList.remove(
 "active"
 )
 );
 
 
-button.classList.add(
+b.classList.add(
 "active"
 );
 
 
 document
-
 .querySelectorAll(
 ".page"
 )
-
 .forEach(
-x =>
-x.classList.add(
+x=>x.classList.add(
 "hidden"
 )
 );
 
 
 document
-
 .getElementById(
-button.dataset.page
+b.dataset.page
 )
-
 .classList.remove(
 "hidden"
 );
@@ -4130,9 +5132,9 @@ button.dataset.page
 });
 
 
-/* ==========================================================
+/* ======================================================
    START APP
-========================================================== */
+====================================================== */
 
 renderStats();
 
@@ -4144,13 +5146,17 @@ renderCampus();
 
 renderExamProgress();
 
-renderSkills();
-
 renderBusy();
 
 loadSleep();
 
 drawTimer();
+
+initOsce();
+
+renderBlockTopics();
+
+renderBlockSummary();
 
 </script>
 
